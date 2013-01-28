@@ -9,12 +9,13 @@ import math
 import sys
 
 #sys.setrecursionlimit(5)
-"""
-Cacluclate a pivot given list of strings R
-Pick the last, the first, and the middle element, and choose their median as a pivot
-Source: http://www.cs.utexas.edu/~lavender/courses/EE360C/lectures/lecture-22.pdf
-"""
+
 def SelectPivot(R):
+    """
+    Cacluclate a pivot given list of strings R
+    Pick the last, the first, and the middle element, and choose their median as a pivot
+    Source: http://www.cs.utexas.edu/~lavender/courses/EE360C/lectures/lecture-22.pdf
+    """
     length = len(R)
     i_first = 0
     i_last = length-1
@@ -40,10 +41,19 @@ def SelectPivot(R):
             i_median = i_first
     return i_median
         
-"""
-Perform a Ternary Quicksort on Strings in R
-"""
 def TernaryQuickSort(R):
+    """
+    Performs string ternary quicksort on the strings in R 
+    
+    Input: 
+    
+        (Multi)set R in arbitrary order.
+        
+    Output: 
+    
+        R in ascending order.
+        
+    """
     length = len(R)
     if length <= 1:
         return R
@@ -62,11 +72,56 @@ def TernaryQuickSort(R):
     R_less = TernaryQuickSort(R_less)
     R_greater = TernaryQuickSort(R_greater)
     return R_less + R_equal + R_greater
- 
+
+def QuickSort(R, l=0):
+    """
+    Performs string quicksort on the strings in R 
+    
+    Input: 
+    
+        (Multi)set R of strings and the length
+        Integer l = position being compared, defaults to zero
+        
+    Output: 
+    
+        R in ascending lexicographical order.
+        
+    """
+    length = len(R)
+    
+    if length <= 1:
+        return R
+    
+    #init empty lists
+    R_less = [] 
+    R_equal = [] 
+    R_greater = []
+    R_short = [] #list for storing the string that are exactly of length l
+    
+    for index, S in enumerate(R) :
+        if len(S) <= l+1:
+            R_short.append(S)
+            R.pop(index)
+            
+    X = R[SelectPivot(R)]
+    
+    for S in R : 
+        if S[l] < X[l] :
+            R_less.append(S)
+        elif S[l] == X[l] :
+            R_equal.append(S)
+        else :
+            R_greater.append(S)
+    R_less = QuickSort(R_less, l)
+    R_equal = QuickSort(R_equal, l+1)
+    R_greater = QuickSort(R_greater, l)
+    
+    return R_short + R_less + R_equal + R_greater
+            
 _R = ['abc','def','aaf','adsf1','gxxa','a']
 
 print TernaryQuickSort(_R)
-
+print QuickSort(_R)
 
 
 
