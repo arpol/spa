@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python2
 
 # Usage: ./map.py path.to.module:function < input.file > output.file
 # 
@@ -12,6 +12,10 @@
 import sys
 import radixsort
 
+def nop(arg):
+    return arg
+
 module, member = sys.argv[1].rsplit(':', 1)
 func = getattr(__import__(name=module, fromlist=[member]), member)
-print('\n'.join(func(line.rstrip('\n') for line in sys.stdin)))
+for line in func([line.rstrip('\n') for line in sys.stdin]):
+    print(line)
