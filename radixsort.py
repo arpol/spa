@@ -1,16 +1,19 @@
 def msd(iterable):
-    stack = list([(iterable, 0)])
+    stack = [(iterable, 0)]
     while stack:
         iterable, depth = stack.pop()
-        if len(iterable) < 8192:
-            for string in sorted(iterable):
+        if depth < 0:
+            for string in iterable:
                 yield string
         else:
             buckets = [list() for x in range(256)]
             for string in iterable:
                 key = ord(string[depth] if depth < len(string) else '\0')
                 buckets[key].append(string)
-            for string in buckets[0]:
-                yield string
-            stack.extend((bucket, depth+1)
-                         for bucket in buckets[-1:0:-1] if bucket)
+            for bucket in reversed(buckets):
+                if bucket:
+                    if len(bucket) < 256:
+                        stack.append((sorted(bucket), -1))
+                    else:
+                        stack.append((bucket, depth+1))
+            stack[-1] = (buckets[0], -1)
