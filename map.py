@@ -12,9 +12,6 @@
 import sys
 import radixsort
 
-def nop(arg):
-    return arg
-
 module, member = sys.argv[1].rsplit(':', 1)
 func = getattr(__import__(name=module, fromlist=[member]), member)
 for line in func([line.rstrip('\n') for line in sys.stdin]):
