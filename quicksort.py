@@ -118,11 +118,7 @@ def QuickSort(R, l=0):
     
     return R_short + R_less + R_equal + R_greater
             
-_R = ['abc','def','aaf','adsf1','gxxa','a']
+#_R = ['abc','def','aaf','adsf1','gxxa','a']
 
-print TernaryQuickSort(_R)
-print QuickSort(_R)
-
-
-
-
+#print TernaryQuickSort(_R)
+#print QuickSort(_R)
