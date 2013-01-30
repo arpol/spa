@@ -1,3 +1,5 @@
+from quicksort import QuickSort
+
 def msd(iterable):
     stack = [(iterable, 0)]
     while stack:
@@ -13,7 +15,7 @@ def msd(iterable):
             for bucket in reversed(buckets):
                 if bucket:
                     if len(bucket) < 256:
-                        stack.append((sorted(bucket), -1))
+                        stack.append((QuickSort(bucket, depth+1), -1))
                     else:
                         stack.append((bucket, depth+1))
             stack[-1] = (buckets[0], -1)
