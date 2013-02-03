@@ -6,6 +6,8 @@ def listify(filepath) :
     """
     Converts the input text into a line separated list of words
     
+    Usage ./listify.py INPUT > OUTPUT
+    
     Input: 
         filepath - path to the dataset filepath
     
