@@ -2,8 +2,6 @@
 
 """
 Try next 1)Binary quicksort, 2)Multikey quicksort
-
-Algorithm 1.16
 """
 import math
 import sys
