@@ -27,7 +27,7 @@ def SelectPivot(R):
     if R[i_last] >= R[i_mid] : #last element is bigger than the middle:  123,213,312
         if R[i_mid] >= R[i_first] : #123
             return i_mid
-        elif R[i_first] >= [i_last] : #312
+        elif R[i_first] >= R[i_last] : #312
             return i_last
         else : #213
             return  i_first
