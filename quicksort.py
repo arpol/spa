@@ -72,7 +72,7 @@ def TernaryQuickSort(R):
     R_greater = TernaryQuickSort(R_greater)
     return R_less + R_equal + R_greater
 
-def QuickSort(iterable):
+def QuickSort(iterable, depth=0):
     """
     Performs string quicksort on the strings in R 
     
@@ -88,7 +88,7 @@ def QuickSort(iterable):
     """
     #print R
     
-    stack = [[iterable, 0]]
+    stack = [[iterable, depth]]
     result = []
     while stack :
         R, l = stack.pop()
