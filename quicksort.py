@@ -86,23 +86,23 @@ def QuickSort(iterable, depth=0):
         R in ascending lexicographical order.
         
     """
-    #print R
+    #print(R)
     
     stack = [[iterable, depth]]
     result = []
     while stack :
         R, l = stack.pop()
-        #print "\n"
-        #print "Iterating: "
-        #print R       
-        #print l
+        #print("\n")
+        #print("Iterating: ")
+        #print(R)
+        #print(l)
         length = len(R)
         
         if length <= 1:
-            #print "R is: "
-            #print R
-            #print "length is: "
-            #print length
+            #print("R is: ")
+            #print(R)
+            #print("length is: ")
+            #print(length)
             if length == 1 :
                 result += R
             continue
@@ -130,12 +130,12 @@ def QuickSort(iterable, depth=0):
             result += R_short
             continue
         
-        #print "prepivot..."
+        #print("prepivot...")
         
         X = R[SelectPivot(R)]
         
-        #print "Pivot"
-        #print X
+        #print("Pivot")
+        #print(X)
         
         char_at_x = X[l]
         
@@ -155,16 +155,16 @@ def QuickSort(iterable, depth=0):
         
         stack.append([R_less, l])
         #print "Printing stack: "
-        #print stack
+        #print(stack)
         #return R_short + R_less + R_equal + R_greater
     
-    #print "Result: "
-    #print result
+    #print("Result: ")
+    #print(result)
     return result
 
 if __name__ == "__main__" :
     #rudimentary test
     _R = ['abc','def', 'i', 'aaf','adsf1','gxxa','a']
 
-    print TernaryQuickSort(_R)
-    print QuickSort(_R)
+    print(TernaryQuickSort(_R))
+    print(QuickSort(_R))
