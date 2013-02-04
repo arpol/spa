@@ -23,7 +23,7 @@ def SelectPivot(R):
     if i_last == i_mid :
         return i_first 
     #Otherwise, if there are three elements,
-    #Possible arrangements are: 123,132,213,231,312,321    
+    #Possible arrangements are: 123,132,213,231,312,321
     if R[i_last] >= R[i_mid] : #last element is bigger than the middle:  123,213,312
         if R[i_mid] >= R[i_first] : #123
             return i_mid
@@ -114,7 +114,7 @@ def QuickSort(iterable, depth=0):
         R_short = [] #list for storing the string that are exactly of length l
         
         j = 0
-        while j < len(R) :        
+        while j < len(R) :
             if len(R[j]) <= l:
                 R_short.append(R[j])
                 R.pop(j)
@@ -139,7 +139,7 @@ def QuickSort(iterable, depth=0):
         
         char_at_x = X[l]
         
-        for S in R :                
+        for S in R :
             if S[l] < char_at_x :
                 R_less.append(S)
             elif S[l] == char_at_x :
