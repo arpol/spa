@@ -25,7 +25,7 @@ else
 fi
 time (
     [ -n "$headerflag" ] && echo '?' "${headers[@]}" time
-    parallel $headerflag '
+    parallel --max-procs 1 $headerflag '
         result=$((time '$args' >/dev/null) 2>&1)
         status=$?
         result=$(sed -n 3p <<< "$result" | cut -f 2)
