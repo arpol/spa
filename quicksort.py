@@ -15,7 +15,7 @@ def SelectPivot(R):
     Pick the last, the first, and the middle element, and choose their median as a pivot
     Source: http://www.cs.utexas.edu/~lavender/courses/EE360C/lectures/lecture-22.pdf
     """
-    length = len(R)
+    length = len(R)    
     i_first = 0
     i_last = length-1
     i_mid = int(math.ceil((length-1)/2))
@@ -113,27 +113,34 @@ def QuickSort(iterable, depth=0):
         R_equal = [] 
         R_greater = []
         R_short = [] #list for storing the string that are exactly of length l
-        
-        j = 0
-        while j < len(R) :
-            if len(R[j]) <= l:
-                R_short.append(R[j])
-                R.pop(j)
+        R_new = [] #updated R
+
+        """
+        for x in R:
+            if len(x) <= l :
+                result.append(x)
             else :
-                j += 1
-                
-        #for index, S in enumerate(R) :
-        #   if len(S) <= l:
-        #      R_short.append(S)
-        #     R.pop(index)
-        # R is empty?
+                R_new.append(x)
+        """
+        def yielding():
+            def yielder():
+                for x in R:
+                    if len(x) <= l :
+                        result.append(x)
+                        continue
+                    yield x
+            return list(yielder())
+        
+        R = yielding()
+
         if len(R) == 0 :
-            result += R_short
             continue
         
         #print("prepivot...")
         
+        #Try with random pivot with value close to center
         X = R[SelectPivot(R)]
+        #X = R[int(math.floor((len(R))/2))]
         
         #print("Pivot")
         #print(X)
@@ -147,13 +154,9 @@ def QuickSort(iterable, depth=0):
                 R_equal.append(S)
             else :
                 R_greater.append(S)
-        #R_less = QuickSort(R_less, l)
-        #R_equal = QuickSort(R_equal, l+1)
-        #R_greater = QuickSort(R_greater, l)
-        result += R_short
+
         stack.append((R_greater, l))
         stack.append((R_equal, l+1))
-        
         stack.append((R_less, l))
         #print "Printing stack: "
         #print(stack)
@@ -162,6 +165,8 @@ def QuickSort(iterable, depth=0):
     #print("Result: ")
     #print(result)
     return result
+
+
 
 """
 def yielding():
