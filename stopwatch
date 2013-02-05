@@ -26,9 +26,8 @@ fi
 time (
     [ -n "$headerflag" ] && echo '?' "${headers[@]}" time
     parallel --max-procs 1 $headerflag '
+        export TIMEFORMAT="%3Us"
         result=$((time '$args' >/dev/null) 2>&1)
-        status=$?
-        result=$(sed -n 3p <<< "$result" | cut -f 2)
-        echo "$status '$args' $result"
+        echo "$? '$args' $result"
     ' $(<"$1")
 ) | column -t
