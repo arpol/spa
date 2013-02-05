@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 # Usage: ./map.py path.to.module:function input.file > output.file
 # 
