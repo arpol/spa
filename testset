@@ -1,0 +1,13 @@
+::: environment
+pypy
+python2
+python3
+::: program
+map.py
+::: function
+sorted
+radixsort:msd
+quicksort:TernaryQuickSort
+quicksort:QuickSort
+::: dataset
+dataset/*MB

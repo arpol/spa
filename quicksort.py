@@ -23,11 +23,11 @@ def SelectPivot(R):
     if i_last == i_mid :
         return i_first 
     #Otherwise, if there are three elements,
-    #Possible arrangements are: 123,132,213,231,312,321    
+    #Possible arrangements are: 123,132,213,231,312,321
     if R[i_last] >= R[i_mid] : #last element is bigger than the middle:  123,213,312
         if R[i_mid] >= R[i_first] : #123
             return i_mid
-        elif R[i_first] >= [i_last] : #312
+        elif R[i_first] >= R[i_last] : #312
             return i_last
         else : #213
             return  i_first
@@ -72,7 +72,7 @@ def TernaryQuickSort(R):
     R_greater = TernaryQuickSort(R_greater)
     return R_less + R_equal + R_greater
 
-def QuickSort(iterable):
+def QuickSort(iterable, depth=0):
     """
     Performs string quicksort on the strings in R 
     
@@ -86,23 +86,24 @@ def QuickSort(iterable):
         R in ascending lexicographical order.
         
     """
-    #print R
+    #print(R)
     
-    stack = [(iterable, 0)]
+    stack = [[iterable, depth]]
+    
     result = []
     while stack :
         R, l = stack.pop()
-        #print "\n"
-        #print "Iterating: "
-        #print R       
-        #print l
+        #print("\n")
+        #print("Iterating: ")
+        #print(R)
+        #print(l)
         length = len(R)
         
         if length <= 1:
-            #print "R is: "
-            #print R
-            #print "length is: "
-            #print length
+            #print("R is: ")
+            #print(R)
+            #print("length is: ")
+            #print(length)
             if length == 1 :
                 result += R
             continue
@@ -114,7 +115,7 @@ def QuickSort(iterable):
         R_short = [] #list for storing the string that are exactly of length l
         
         j = 0
-        while j < len(R) :        
+        while j < len(R) :
             if len(R[j]) <= l:
                 R_short.append(R[j])
                 R.pop(j)
@@ -130,16 +131,16 @@ def QuickSort(iterable):
             result += R_short
             continue
         
-        #print "prepivot..."
+        #print("prepivot...")
         
         X = R[SelectPivot(R)]
         
-        #print "Pivot"
-        #print X
+        #print("Pivot")
+        #print(X)
         
         char_at_x = X[l]
         
-        for S in R :                
+        for S in R :
             if S[l] < char_at_x :
                 R_less.append(S)
             elif S[l] == char_at_x :
@@ -155,11 +156,11 @@ def QuickSort(iterable):
         
         stack.append((R_less, l))
         #print "Printing stack: "
-        #print stack
+        #print(stack)
         #return R_short + R_less + R_equal + R_greater
     
-    #print "Result: "
-    #print result
+    #print("Result: ")
+    #print(result)
     return result
 
 """
@@ -195,5 +196,5 @@ if __name__ == "__main__" :
     #rudimentary test
     _R = ['abc','def', 'i', 'aaf','adsf1','gxxa','a']
 
-    print TernaryQuickSort(_R)
-    print QuickSort(_R)
+    print(TernaryQuickSort(_R))
+    print(QuickSort(_R))
