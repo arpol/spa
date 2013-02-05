@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# Usage: stopwatch <testset>
+# 
+# Measures the userspace execution time of every possible combination of
+# arguments in the testset file and echoes the results in columnated format
+# to standard output.  Total execution time is echoed to standard error.
+# 
+# The testset file must contain one parameter per line, with no spaces
+# within parameters.  A line starting with ::: marks the start of a new
+# parameter dimension.  If you want column headers in the output, you can
+# follow the :::'s with whitespace and the dimension name.  (The astute reader
+# may have observed that this file looks suspiciously like an argument list to
+# GNU parallel, and that is exactly how it is used.)
+# 
+# Example: stopwatch testset > results.csv 2> totaltime
+
+dimensions=$(grep -c ::: "$1")
+headers=($(grep ::: "$1"| cut -c 5-))
+if [ ${#headers[@]} -eq $dimensions ] ; then
+    headerflag='--header :'
+    args=$(for x in "${headers[@]}"; do echo -n "{$x} "; done)
+else
+    args=$(seq -s ' ' -f '{%0.0f}' $dimensions)
+fi
+time (
+    [ -n "$headerflag" ] && echo '?' "${headers[@]}" time
+    parallel $headerflag '
+        result=$((time '$args' >/dev/null) 2>&1)
+        status=$?
+        result=$(sed -n 3p <<< "$result" | cut -f 2)
+        echo "$status '$args' $result"
+    ' $(<"$1")
+) | column -t
