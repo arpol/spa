@@ -88,7 +88,7 @@ def QuickSort(iterable):
     """
     #print R
     
-    stack = [[iterable, 0]]
+    stack = [(iterable, 0)]
     result = []
     while stack :
         R, l = stack.pop()
@@ -150,10 +150,10 @@ def QuickSort(iterable):
         #R_equal = QuickSort(R_equal, l+1)
         #R_greater = QuickSort(R_greater, l)
         result += R_short
-        stack.append([R_greater, l])
-        stack.append([R_equal, l+1])
+        stack.append((R_greater, l))
+        stack.append((R_equal, l+1))
         
-        stack.append([R_less, l])
+        stack.append((R_less, l))
         #print "Printing stack: "
         #print stack
         #return R_short + R_less + R_equal + R_greater
@@ -162,6 +162,35 @@ def QuickSort(iterable):
     #print result
     return result
 
+"""
+def yielding():
+    def yielder():
+        for d in data:
+            yield d
+    return list(yielder())
+
+        for S in R :                
+            if S[l] < char_at_x :
+                R_less.append(S)
+            elif S[l] == char_at_x :
+                R_equal.append(S)
+            else :
+                R_greater.append(S)
+                
+from itertools import groupby 
+
+def cleave_by_change2(stream, key_fn):
+    return (group for key, group in groupby(stream, key_fn))
+
+main_gen = cleave_by_change2(R, lambda x: x)
+
+print main_gen
+
+for sub_gen in main_gen:
+    print sub_gen
+    print list(sub_gen)
+
+"""
 if __name__ == "__main__" :
     #rudimentary test
     _R = ['abc','def', 'i', 'aaf','adsf1','gxxa','a']
