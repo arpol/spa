@@ -111,35 +111,32 @@ def QuickSort(iterable, depth=0):
         R_less = [] 
         R_equal = [] 
         R_greater = []
-        R_short = [] #list for storing the string that are exactly of length l
+        R_new = []
         
-        j = 0
-        while j < len(R) :
-            if len(R[j]) <= l:
-                R_short.append(R[j])
-                R.pop(j)
-            else :
-                j += 1
-                
+        for S in R:
+            if len(S) <= l:
+                result.append(S)
+            else:
+                R_new.append(S)
+        
         #for index, S in enumerate(R) :
         #   if len(S) <= l:
         #      R_short.append(S)
         #     R.pop(index)
         # R is empty?
-        if len(R) == 0 :
-            result += R_short
+        if len(R_new) == 0 :
             continue
         
         #print("prepivot...")
         
-        X = R[SelectPivot(R)]
+        X = R_new[SelectPivot(R_new)]
         
         #print("Pivot")
         #print(X)
         
         char_at_x = X[l]
         
-        for S in R :
+        for S in R_new :
             if S[l] < char_at_x :
                 R_less.append(S)
             elif S[l] == char_at_x :
@@ -149,10 +146,8 @@ def QuickSort(iterable, depth=0):
         #R_less = QuickSort(R_less, l)
         #R_equal = QuickSort(R_equal, l+1)
         #R_greater = QuickSort(R_greater, l)
-        result += R_short
         stack.append([R_greater, l])
         stack.append([R_equal, l+1])
-        
         stack.append([R_less, l])
         #print "Printing stack: "
         #print(stack)
