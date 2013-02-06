@@ -10,36 +10,6 @@ def median(x,y,z):
     elif x <= z <= y or y <= z <= x:
         return z
 
-def multikey(iterable, depth=0):
-    stack = [(iterable, depth)]
-    while stack:
-        bucket, depth = stack.pop()
-        new_bucket = []
-        for string in bucket:
-            if len(string) > depth >= 0:
-                new_bucket.append(string)
-            else:
-                yield string
-        if len(new_bucket) > 1:
-            pivot = median(new_bucket[0][depth],
-                           new_bucket[len(new_bucket)//2][depth],
-                           new_bucket[-1][depth])
-            lesser = []
-            equal = []
-            greater = []
-            for string in new_bucket:
-                if string[depth] < pivot:
-                    lesser.append(string)
-                elif string[depth] == pivot:
-                    equal.append(string)
-                elif string[depth] > pivot:
-                    greater.append(string)
-            stack.append((greater, depth))
-            stack.append((equal, depth+1))
-            stack.append((lesser, depth))
-        elif new_bucket:
-            yield new_bucket[0]
-
 def insertion(iterable, depth=0):
     stack = [(iterable, depth)]
     while stack:
@@ -50,7 +20,7 @@ def insertion(iterable, depth=0):
                 new_bucket.append(string)
             else:
                 yield string
-        if len(new_bucket) > 3:
+        if len(new_bucket) > 16:
             pivot = median(new_bucket[0][depth],
                            new_bucket[len(new_bucket)//2][depth],
                            new_bucket[-1][depth])
