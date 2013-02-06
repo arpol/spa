@@ -2,7 +2,7 @@
 
 import insertionsort
 
-def insertion(iterable, depth=0):
+def msd(iterable, depth=0):
     stack = [(iterable, depth)]
     while stack:
         iterable, depth = stack.pop()
