@@ -7,10 +7,7 @@ map.py
 ::: function
 sorted
 radixsort:msd
-radixsort:insertion
-radixsort:quickinsert
-quicksort:multikey
-quicksort:insertion
-insertionsort:multikey
+quicksort:QuickSort
+quicksort:TernaryQuickSort
 ::: dataset
 dataset/*MB
