@@ -26,7 +26,7 @@ fi
 time (
     [ -n "$headerflag" ] && echo '?' "${headers[@]}" time
     parallel --max-procs 1 $headerflag '
-        export TIMEFORMAT="%3Us"
+        export TIMEFORMAT="%3U"
         result=$((time '$args' >/dev/null) 2>&1)
         echo "$? '$args' $result"
     ' $(<"$1")
