@@ -17,18 +17,30 @@
 
 dimensions=$(grep -c ::: "$1")
 headers=($(grep ::: "$1"| cut -c 5-))
+
+format="%c"
+for headerlineno in $(grep -n ::: "$1" | grep -oP '\d+'); do
+    maxlen=0
+    for word in $(sed -n "$headerlineno,/^:::/p" "$1" | head -n-1); do
+        if [ ${#word} -gt $maxlen ] ; then
+            maxlen=${#word}
+        fi
+    done
+    format="$format  %-${maxlen}s"
+done
+format="$format  %s\n"
+
 if [ ${#headers[@]} -eq $dimensions ] ; then
     headerflag='--header :'
+    printf "$format" '?' "${headers[@]}" time
     args=$(for x in "${headers[@]}"; do echo -n "{$x} "; done)
 else
     args=$(seq -s ' ' -f '{%0.0f}' $dimensions)
 fi
-time (
-    [ -n "$headerflag" ] && echo '?' "${headers[@]}" time
-    parallel $headerflag '
-        result=$((time '$args' >/dev/null) 2>&1)
-        status=$?
-        result=$(sed -n 3p <<< "$result" | cut -f 2)
-        echo "$status '$args' $result"
-    ' $(<"$1")
-) | column -t
+
+time parallel --max-procs 1 $headerflag "
+    TIMEFORMAT=%3U
+    result=\$((time $args >/dev/null) 2>&1)
+    [ \$? -eq 0 ] && status=' ' || status='!'
+    printf '$format' \"\$status\" $args \$result
+" $(<"$1")

@@ -106,17 +106,15 @@ def QuickSort(iterable, depth=0):
                 result.append(S)
             else :
                 R_new.append(S)
-
-        R = R_new
         
-        if len(R) == 0 :
+        if len(R_new) == 0 :
             continue
         
-        X = R[SelectPivot(R)]
+        X = R_new[SelectPivot(R_new)]
         
         char_at_x = X[l]
         
-        for S in R : #partition the list into smaller-than, equal, greater-than lists
+        for S in R_new : #partition the list into smaller-than, equal, greater-than lists
             if S[l] < char_at_x :
                 R_less.append(S)
             elif S[l] == char_at_x :

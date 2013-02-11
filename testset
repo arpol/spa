@@ -7,7 +7,9 @@ map.py
 ::: function
 sorted
 radixsort:msd
-quicksort:TernaryQuickSort
 quicksort:QuickSort
+quicksort:TernaryQuickSort
 ::: dataset
-dataset/*MB
+dataset/dna.200MB
+dataset/english-words.utf-8.100MB
+dataset/proteins.200MB
