@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Usage: stopwatch <testset>
 # 
@@ -11,17 +11,18 @@
 # parameter dimension.  If you want column headers in the output, you can
 # follow the :::'s with whitespace and the dimension name.  (The astute reader
 # may have observed that this file looks suspiciously like an argument list to
-# GNU parallel, and that is exactly how it is used.)
+# GNU parallel, and that is exactly how it is used.)  Lines can be commented
+# by prefixing them with a hash character.
 # 
 # Example: stopwatch testset > results.csv 2> totaltime
 
-dimensions=$(grep -c ::: "$1")
-headers=($(grep ::: "$1"| cut -c 5-))
+dimensions=$(grep -c ^::: "$1")
+headers=($(grep ^::: "$1"| cut -c 5-))
 
 format="%c"
-for headerlineno in $(grep -n ::: "$1" | grep -oP '\d+'); do
+for lineno in $(grep -n ^::: "$1" | grep -oP '\d+'); do
     maxlen=0
-    for word in $(sed -n "$headerlineno,/^:::/p" "$1" | head -n-1); do
+    for word in $(sed -n "$lineno,/^:::/p" "$1" | head -n-1 | grep -v '^#'); do
         if [ ${#word} -gt $maxlen ] ; then
             maxlen=${#word}
         fi
@@ -43,4 +44,4 @@ time parallel --max-procs 1 $headerflag "
     result=\$((time $args >/dev/null) 2>&1)
     [ \$? -eq 0 ] && status=' ' || status='!'
     printf '$format' \"\$status\" $args \$result
-" $(<"$1")
+" $(grep -v '^#' "$1")
