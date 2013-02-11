@@ -26,10 +26,6 @@ The sources used were in particular:
 * [ENGLISH](http://pizzachili.dcc.uchile.cl/texts/nlang/) - Concatenated English texts (normal language)
 * [URLs](http://???) - URL database
 
-Before running the sorting algorithms through the above test material, the test material was normalized by:
-    
-1. Separating each string with a `NEWLINE` character
-2. Appending a `NEWLINE` character to the end of the file
 
 Algorithms
 ----------
@@ -62,6 +58,13 @@ Shares pivot function with Ternary Quicksort
 
 Running the algorithms
 ----------------------
+### Normalizing the test material
+
+Before running the sorting algorithms through the above test material, the test material was normalized by:
+    
+1. Separating each string with a `NEWLINE` character
+2. Appending a `NEWLINE` character to the end of the file
+
 ### Individual run using *map.py*
 
 Using the following syntax: `./map.py radixsort:msd dataset.txt > sorted.txt`
