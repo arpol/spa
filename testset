@@ -1,7 +1,5 @@
 ::: environment
 pypy
-python2
-python3
 ::: program
 map.py
 ::: function
@@ -9,7 +7,14 @@ sorted
 radixsort:msd
 quicksort:QuickSort
 quicksort:TernaryQuickSort
+burst:sort
+mkqsort:main
 ::: dataset
+dataset/dna.100MB
 dataset/dna.200MB
-dataset/english-words.utf-8.100MB
+dataset/proteins.100MB
 dataset/proteins.200MB
+dataset/urls.100MB
+dataset/urls.200MB
+dataset/words.100MB
+dataset/words.200MB
