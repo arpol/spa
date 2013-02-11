@@ -58,6 +58,7 @@ Implemented by:
 
 String Quicksort implementation based on iterating over the position of the currently compared character. Recurssion implemented using stack
 
+Shares pivot function with Ternary Quicksort
 
 Running the algorithms
 ----------------------
