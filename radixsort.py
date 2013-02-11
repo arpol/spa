@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import insertionsort
+import quicksort
 
 def msd(iterable, depth=0):
     stack = [(iterable, depth)]
