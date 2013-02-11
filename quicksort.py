@@ -1,13 +1,8 @@
 #!/usr/bin/python
 
-"""
-Try next 1)Binary quicksort, 2)Multikey quicksort
-"""
 import math
 import sys
 import itertools
-
-#sys.setrecursionlimit(5)
 
 def SelectPivot(R):
     """
@@ -74,36 +69,28 @@ def TernaryQuickSort(R):
 
 def QuickSort(iterable, depth=0):
     """
-    Performs string quicksort on the strings in R 
+    Performs string quicksort on the strings in iterable
     
     Input: 
     
         (Multi)set iterable of strings and the length
-        Integer l = position being compared, defaults to zero
+        Integer depth = position being compared, defaults to zero
         
     Output: 
     
-        R in ascending lexicographical order.
+        iterable in ascending lexicographical order.
         
     """
-    #print(R)
+    stack = [[iterable, depth]] #recurssion stack    
     
-    stack = [[iterable, depth]]
+    result = [] #store the sorted list here
     
-    result = []
     while stack :
-        R, l = stack.pop()
-        #print("\n")
-        #print("Iterating: ")
-        #print(R)
-        #print(l)
+        R, l = stack.pop() #get the list to sort in the current iteration, position marker being sorted
+        
         length = len(R)
         
         if length <= 1:
-            #print("R is: ")
-            #print(R)
-            #print("length is: ")
-            #print(length)
             if length == 1 :
                 result += R
             continue
@@ -112,42 +99,24 @@ def QuickSort(iterable, depth=0):
         R_less = [] 
         R_equal = [] 
         R_greater = []
-        R_short = [] #list for storing the string that are exactly of length l
         R_new = [] #updated R
 
-        """
-        for x in R:
-            if len(x) <= l :
-                result.append(x)
+        for S in R:
+            if len(S) <= l :
+                result.append(S)
             else :
-                R_new.append(x)
-        """
-        def yielding():
-            def yielder():
-                for x in R:
-                    if len(x) <= l :
-                        result.append(x)
-                        continue
-                    yield x
-            return list(yielder())
-        
-        R = yielding()
+                R_new.append(S)
 
+        R = R_new
+        
         if len(R) == 0 :
             continue
         
-        #print("prepivot...")
-        
-        #Try with random pivot with value close to center
         X = R[SelectPivot(R)]
-        #X = R[int(math.floor((len(R))/2))]
-        
-        #print("Pivot")
-        #print(X)
         
         char_at_x = X[l]
         
-        for S in R :
+        for S in R : #partition the list into smaller-than, equal, greater-than lists
             if S[l] < char_at_x :
                 R_less.append(S)
             elif S[l] == char_at_x :
@@ -158,47 +127,11 @@ def QuickSort(iterable, depth=0):
         stack.append((R_greater, l))
         stack.append((R_equal, l+1))
         stack.append((R_less, l))
-        #print "Printing stack: "
-        #print(stack)
-        #return R_short + R_less + R_equal + R_greater
-    
-    #print("Result: ")
-    #print(result)
+
     return result
 
-
-
-"""
-def yielding():
-    def yielder():
-        for d in data:
-            yield d
-    return list(yielder())
-
-        for S in R :                
-            if S[l] < char_at_x :
-                R_less.append(S)
-            elif S[l] == char_at_x :
-                R_equal.append(S)
-            else :
-                R_greater.append(S)
-                
-from itertools import groupby 
-
-def cleave_by_change2(stream, key_fn):
-    return (group for key, group in groupby(stream, key_fn))
-
-main_gen = cleave_by_change2(R, lambda x: x)
-
-print main_gen
-
-for sub_gen in main_gen:
-    print sub_gen
-    print list(sub_gen)
-
-"""
 if __name__ == "__main__" :
-    #rudimentary test
+    #rudimentary test:
     _R = ['abc','def', 'i', 'aaf','adsf1','gxxa','a']
 
     print(TernaryQuickSort(_R))
