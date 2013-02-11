@@ -1,11 +1,11 @@
-String Processing algorithms - String Sorting
+String Processing Algorithms - String Sorting
 =============================================
 
 String processing algorithm implementations in Python for a university programming course. The following implementation includes string sorting algorithms done in Python, with various approaches taken to string abstraction, recursion, and input partitioning. 
 
 The algorithms were tested with various test materials, and the results (running times) were recorded.
 
-All tests were performed using pypy Just-In-Time compiler for Python, in order to obtain faster running times.
+All tests were performed using [pypy](http://pypy.org/) Just-In-Time compiler for Python, in order to obtain faster running times.
 
 Team
 ----
@@ -27,8 +27,9 @@ The sources used were in particular:
 * [URLs](http://???) - URL database
 
 Before running the sorting algorithms through the above test material, the test material was normalized by:
-# Separating each string with a `NEWLINE` character
-# Appending a `NEWLINE` character to the end of the file
+    
+1. Separating each string with a `NEWLINE` character
+2. Appending a `NEWLINE` character to the end of the file
 
 Algorithms
 ----------
