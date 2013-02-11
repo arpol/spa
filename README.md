@@ -61,18 +61,18 @@ String Quicksort implementation based on iterating over the position of the curr
 
 Running the algorithms
 ----------------------
-### Individual run using `map.py`
+### Individual run using *map.py*
 
 Using the following syntax: `./map.py radixsort:msd dataset.txt > sorted.txt`
 
 The above command tells `map.py` to execute function `msd()` from file `radixsort.py` with an `iterable` list obtained from `dataset.txt` as an argument
 
-### Batch run using stopwatch shell script
+### Batch run using *stopwatch* shell script
 
 When performing the test, a batch run using a `stopwatch` shell-script is more convenient. 
 This is done using the following syntax: `./stopwatch testset results.csv 2> totaltime`
 
 `stopwatch` goes through all testing material and sorting functions in series, and runs each function with each possibly type of input
 
-`stopwatch` is configured This is done by specifying the paths to the dataset in the file testset (latter part) and running the stopwatch shell script
+`stopwatch` is configured This is done by specifying the paths to the dataset in the file `testset` (last part)
 
