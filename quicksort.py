@@ -1,4 +1,6 @@
 #!/usr/bin/python
+# Author: Arturs Polis
+#
 
 import math
 import sys
@@ -56,13 +58,15 @@ def TernaryQuickSort(R):
     R_less = [] 
     R_equal = [] 
     R_greater = []
-    for s in R :
+    #iterate over strings in R and use Python's built-in string comparisson
+    for s in R : 
         if s < R[x] :
             R_less.append(s)
         elif s == R[x] :
             R_equal.append(s)
         else :
             R_greater.append(s)
+    #partition the function execution into two recursive calls to TernaryQuickSort
     R_less = TernaryQuickSort(R_less)
     R_greater = TernaryQuickSort(R_greater)
     return R_less + R_equal + R_greater
@@ -90,6 +94,8 @@ def QuickSort(iterable, depth=0):
         
         length = len(R)
         
+        #if the resulting list of strings is of length one or shorter, append it to the result
+        # and continue looping
         if length <= 1:
             if length == 1 :
                 result += R
@@ -100,16 +106,19 @@ def QuickSort(iterable, depth=0):
         R_equal = [] 
         R_greater = []
         R_new = [] #updated R
-
+        
+        #find all elements shorter then l and append them to the result
         for S in R:
             if len(S) <= l :
                 result.append(S)
             else :
                 R_new.append(S)
         
+        #if we have no elements in R left after the last operation - then continue to next iteration
         if len(R_new) == 0 :
             continue
         
+        #select a pivot
         X = R_new[SelectPivot(R_new)]
         
         char_at_x = X[l]
@@ -122,6 +131,7 @@ def QuickSort(iterable, depth=0):
             else :
                 R_greater.append(S)
 
+        #create 3 stacks to iterate through - this replaces functional recurssions with parameter stack
         stack.append((R_greater, l))
         stack.append((R_equal, l+1))
         stack.append((R_less, l))
