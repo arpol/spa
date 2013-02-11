@@ -44,7 +44,6 @@ String Quicksort implementation based on iterating over the position of the curr
 
 Shares pivot function with Ternary Quicksort
 
-
 Test material
 -------------
 
@@ -56,7 +55,6 @@ The sources used were in particular:
 * [DNA](http://pizzachili.dcc.uchile.cl/texts/dna/) - DNA snippets  
 * [ENGLISH](http://pizzachili.dcc.uchile.cl/texts/nlang/) - Concatenated English texts (normal language)
 * [URLs](http://???) - URL database
-
 
 Running the algorithms
 ----------------------
