@@ -14,18 +14,6 @@ Team
 * name 2
 * name 3?
 
-Test material
--------------
-
-The test material for the algorithm was originally obtained from http://pizzachili.dcc.uchile.cl/texts.html. In addition the list of URL-strings was obtained from: ???
-
-The sources used were in particular:
-    
-* [PROTEINS](http://pizzachili.dcc.uchile.cl/texts/protein/) - protein sequences
-* [DNA](http://pizzachili.dcc.uchile.cl/texts/dna/) - DNA snippets  
-* [ENGLISH](http://pizzachili.dcc.uchile.cl/texts/nlang/) - Concatenated English texts (normal language)
-* [URLs](http://???) - URL database
-
 
 Algorithms
 ----------
@@ -55,6 +43,20 @@ Implemented by:
 String Quicksort implementation based on iterating over the position of the currently compared character. Recurssion implemented using stack
 
 Shares pivot function with Ternary Quicksort
+
+
+Test material
+-------------
+
+The test material for the algorithm was originally obtained from http://pizzachili.dcc.uchile.cl/texts.html. In addition the list of URL-strings was obtained from: ???
+
+The sources used were in particular:
+    
+* [PROTEINS](http://pizzachili.dcc.uchile.cl/texts/protein/) - protein sequences
+* [DNA](http://pizzachili.dcc.uchile.cl/texts/dna/) - DNA snippets  
+* [ENGLISH](http://pizzachili.dcc.uchile.cl/texts/nlang/) - Concatenated English texts (normal language)
+* [URLs](http://???) - URL database
+
 
 Running the algorithms
 ----------------------
