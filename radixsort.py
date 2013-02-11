@@ -3,11 +3,14 @@
 import quicksort
 
 def msd(iterable, depth=0):
-    """Iterate over the sequences in iterable in lexicographical order,
+    """Iterate over the sequences in ``iterable`` in lexicographical order,
     determined using MSD radix sort.
     
-    The optional depth parameter determines the index from which to start
-    comparing sequences.  Default is 0.
+    The optional ``depth`` parameter determines the position from which to
+    start comparing sequences.  Default is 0.
+    
+    Note that this function returns a generator, not a list.  If a sorted
+    list is desired, invoke it with ``list(msd(iterable))``.
     
     """
     # A naive recursive implementation would blow Python's recursion
