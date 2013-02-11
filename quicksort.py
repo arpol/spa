@@ -1,13 +1,8 @@
 #!/usr/bin/python
 
-"""
-Try next 1)Binary quicksort, 2)Multikey quicksort
-"""
 import math
 import sys
 import itertools
-
-#sys.setrecursionlimit(5)
 
 def SelectPivot(R):
     """
@@ -15,7 +10,7 @@ def SelectPivot(R):
     Pick the last, the first, and the middle element, and choose their median as a pivot
     Source: http://www.cs.utexas.edu/~lavender/courses/EE360C/lectures/lecture-22.pdf
     """
-    length = len(R)
+    length = len(R)    
     i_first = 0
     i_last = length-1
     i_mid = int(math.ceil((length-1)/2))
@@ -74,35 +69,28 @@ def TernaryQuickSort(R):
 
 def QuickSort(iterable, depth=0):
     """
-    Performs string quicksort on the strings in R 
+    Performs string quicksort on the strings in iterable
     
     Input: 
     
         (Multi)set iterable of strings and the length
-        Integer l = position being compared, defaults to zero
+        Integer depth = position being compared, defaults to zero
         
     Output: 
     
-        R in ascending lexicographical order.
+        iterable in ascending lexicographical order.
         
     """
-    #print(R)
+    stack = [[iterable, depth]] #recurssion stack    
     
-    stack = [[iterable, depth]]
-    result = []
+    result = [] #store the sorted list here
+    
     while stack :
-        R, l = stack.pop()
-        #print("\n")
-        #print("Iterating: ")
-        #print(R)
-        #print(l)
+        R, l = stack.pop() #get the list to sort in the current iteration, position marker being sorted
+        
         length = len(R)
         
         if length <= 1:
-            #print("R is: ")
-            #print(R)
-            #print("length is: ")
-            #print(length)
             if length == 1 :
                 result += R
             continue
@@ -111,54 +99,37 @@ def QuickSort(iterable, depth=0):
         R_less = [] 
         R_equal = [] 
         R_greater = []
-        R_new = []
-        
+        R_new = [] #updated R
+
         for S in R:
-            if len(S) <= l:
+            if len(S) <= l :
                 result.append(S)
-            else:
+            else :
                 R_new.append(S)
         
-        #for index, S in enumerate(R) :
-        #   if len(S) <= l:
-        #      R_short.append(S)
-        #     R.pop(index)
-        # R is empty?
         if len(R_new) == 0 :
             continue
         
-        #print("prepivot...")
-        
         X = R_new[SelectPivot(R_new)]
-        
-        #print("Pivot")
-        #print(X)
         
         char_at_x = X[l]
         
-        for S in R_new :
+        for S in R_new : #partition the list into smaller-than, equal, greater-than lists
             if S[l] < char_at_x :
                 R_less.append(S)
             elif S[l] == char_at_x :
                 R_equal.append(S)
             else :
                 R_greater.append(S)
-        #R_less = QuickSort(R_less, l)
-        #R_equal = QuickSort(R_equal, l+1)
-        #R_greater = QuickSort(R_greater, l)
-        stack.append([R_greater, l])
-        stack.append([R_equal, l+1])
-        stack.append([R_less, l])
-        #print "Printing stack: "
-        #print(stack)
-        #return R_short + R_less + R_equal + R_greater
-    
-    #print("Result: ")
-    #print(result)
+
+        stack.append((R_greater, l))
+        stack.append((R_equal, l+1))
+        stack.append((R_less, l))
+
     return result
 
 if __name__ == "__main__" :
-    #rudimentary test
+    #rudimentary test:
     _R = ['abc','def', 'i', 'aaf','adsf1','gxxa','a']
 
     print(TernaryQuickSort(_R))
