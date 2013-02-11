@@ -3,12 +3,16 @@
 
 # Usage: ./map.py path.to.module:function input.file > output.file
 # 
-# Reads the argument of a function from standard input and prints its
-# return value to standard output.  The function must accept an iterator
-# over strings as its argument and return an iterable over strings.
-# Newlines will be stripped from the end of the input strings.
+# Reads the input file as a list of strings and passes it to the named
+# function, printing each string of output on its own line to standard
+# output.  The function must take as its argument an iterable over
+# strings and return an iterable over strings.  Python built-in
+# functions are referred to without a module path or any leading
+# periods or colons.
 # 
-# Example: ./map.py radixsort:msd dataset.txt > sorted.txt
+# Examples:
+#   ./map.py radixsort:msd dataset.txt > sorted.txt
+#   ./map.py sorted dataset.txt > comparison.txt
 
 import sys
 
