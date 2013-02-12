@@ -1,82 +1,44 @@
-String Processing Algorithms - String Sorting
-=============================================
+# String Processing Algorithms --- String Sorting
 
-String processing algorithm implementations in Python for a university programming course. The following implementation includes string sorting algorithms done in Python, with various approaches taken to string abstraction, recursion, and input partitioning. 
+<!-- Author names go here -->
 
-The algorithms were tested with various test materials, and the results (running times) were recorded.
+## Introduction
 
-All tests were performed using [pypy](http://pypy.org/) Just-In-Time compiler for Python, in order to obtain faster running times.
+Python implementations of string sorting algorithms for a university
+programming course.  The algorithms were tested on four separate
+datasets with two differently-sized variants each, and their performance
+benchmarks were recorded (results coming soon).  The [pypy](http://pypy.org/)
+just-in-time compiler was used in order to reduce runtimes.
 
-Team
-----
+## Implemented algorithms
 
-* name 1
-* name 2
-* name 3?
+* MSD radix sort (radixsort.py)
+* Burst sort (burst.py)
+* In-place multikey quicksort, implemented as a helper function for
+  burst sort (mkqsort.py)
+* Multikey quicksort (quicksort.py)
+* Ternary quicksort (quicksort.py)
 
+## Test data
 
-Algorithms
-----------
+The test data consisted of the
+[PROTEINS](http://pizzachili.dcc.uchile.cl/texts/protein/),
+[DNA](http://pizzachili.dcc.uchile.cl/texts/dna/) and
+[ENGLISH](http://pizzachili.dcc.uchile.cl/texts/nlang/) datasets from the
+[Pizza&Chili Corpus](http://pizzachili.dcc.uchile.cl/texts.html), in addition
+to a set of URLs (source to be filled in.)  A 100MB and a 200MB sample of each
+dataset was used.  The ENGLISH datasets were not used as-is, but with each
+word split on its own line, in order to make the algorithms sort individual
+words and not entire lines.
 
-### MSD Radixsort
+In order to preserve space and bandwidth, the exact dataset used will not be
+hosted with the repository, but access to it will be prepared at a later date.
 
-Implemented by:
+## Running the algorithms
 
-### Burst sort
+The Python script `map.py` provides an unified interface to our string sorting
+algorithms; see the file itself for further documentation.
 
-Implemented by:
-
-### Multi-key quicksort
-
-Implemented by:
-
-### Ternary Quicksort (string comparison)
-
-Implemented by:
-    
-Simple Ternary Quicksort implementation using recursive sorting function. String comparisons done using standard Python comparison operators (<,<=,>,=>,==)
-
-### Quicksort (character comparison)
-
-Implemented by:
-
-String Quicksort implementation based on iterating over the position of the currently compared character. Recurssion implemented using stack
-
-Shares pivot function with Ternary Quicksort
-
-Test material
--------------
-
-The test material for the algorithm was originally obtained from http://pizzachili.dcc.uchile.cl/texts.html. In addition the list of URL-strings was obtained from: ???
-
-The sources used were in particular:
-    
-* [PROTEINS](http://pizzachili.dcc.uchile.cl/texts/protein/) - protein sequences
-* [DNA](http://pizzachili.dcc.uchile.cl/texts/dna/) - DNA snippets  
-* [ENGLISH](http://pizzachili.dcc.uchile.cl/texts/nlang/) - Concatenated English texts (normal language)
-* [URLs](http://???) - URL database
-
-Running the algorithms
-----------------------
-### Normalizing the test material
-
-Before running the sorting algorithms through the above test material, the test material was normalized by:
-    
-1. Separating each string with a `NEWLINE` character
-2. Appending a `NEWLINE` character to the end of the file
-
-### Individual run using *map.py*
-
-Using the following syntax: `./map.py radixsort:msd dataset.txt > sorted.txt`
-
-The above command tells `map.py` to execute function `msd()` from file `radixsort.py` with an `iterable` list obtained from `dataset.txt` as an argument
-
-### Batch run using *stopwatch* shell script
-
-When performing the test, a batch run using a `stopwatch` shell-script is more convenient. 
-This is done using the following syntax: `./stopwatch testset results.csv 2> totaltime`
-
-`stopwatch` goes through all testing material and sorting functions in series, and runs each function with each possibly type of input
-
-`stopwatch` is configured This is done by specifying the paths to the dataset in the file `testset` (last part)
-
+We used the `stopwatch` Bash script to measure the performance of our
+algorithms; again, see the file itself for exact documentation.  The `testset`
+file documents our exact `stopwatch` testing configuration.
