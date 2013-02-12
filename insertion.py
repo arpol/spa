@@ -1,7 +1,10 @@
 from burstSettings import EOS
 
 def sort(data, array, depth, L, R):
-
+    """Sort the array using insertion sort. Actually this works
+    correctly when EOS == 0. Otherwise it works incorrectly when
+    comparing EOS and c < EOS.
+    """
     def less(a, b):
         d = depth
         while True:
@@ -14,10 +17,8 @@ def sort(data, array, depth, L, R):
             if c1 == EOS == c2:
                 return False
             d += 1
-            
     if len(array) < 2:
         return
-
     for i in xrange(L + 1, R):
         j = i
         temp = array[i]
