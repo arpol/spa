@@ -1,4 +1,4 @@
-# String Processing Algorithms --- String Sorting
+# String Processing Algorithms - String Sorting
 
 <!-- Author names go here -->
 
