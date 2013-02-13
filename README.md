@@ -13,8 +13,8 @@ runtimes on the more complex inputs.
 
 * MSD radix sort (radixsort.py)
 * Burst sort (burst.py)
-* In-place multikey quicksort, implemented as a helper function for
-  burst sort (mkqsort.py)
+* In-place multikey quicksort, as a helper function for burst sort
+  (mkqsort.py) and insertion sort as a helper for that (insertion.py)
 * Multikey quicksort (quicksort.py)
 * Ternary quicksort (quicksort.py)
 
@@ -25,10 +25,13 @@ The test data consisted of the
 [DNA](http://pizzachili.dcc.uchile.cl/texts/dna/) and
 [ENGLISH](http://pizzachili.dcc.uchile.cl/texts/nlang/) datasets from the
 [Pizza&Chili Corpus](http://pizzachili.dcc.uchile.cl/texts.html), in addition
-to a set of URLs (source to be filled in.)  A 100MB and a 200MB sample of each
-dataset was used.  The ENGLISH datasets were not used as-is, but with each
-word split on its own line, in order to make the algorithms sort individual
-words and not entire lines.
+to a set of URLs from Ranjan Sinha's¹ data² for his original Burstsort paper.
+(¹) https://sites.google.com/site/ranjansinha/home 
+(²) http://www.cs.mu.oz.au/~rsinha/resources/data/sort.data.zip
+
+A 100MB and a 200MB sample of each dataset was used.  The ENGLISH datasets 
+were not used as-is, but with each word split on its own line, in order to
+make the algorithms sort individual words and not entire lines.
 
 See the `statistics` file for statistics on the different datasets.
 
