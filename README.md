@@ -2,11 +2,12 @@
 
 ## Introduction
 
-Python implementations of string sorting algorithms for a university
-programming course.  The algorithms were tested on four separate
-datasets with two differently-sized variants each, and their performance
-benchmarks were recorded.  The [pypy](http://pypy.org/) just-in-time
-compiler was used in order to reduce runtimes on the more complex inputs.
+This repository contains Python implementations of various string sorting
+algorithms, designed for a university programming course.  The algorithms
+were tested on four separate datasets with two differently-sized variants
+each, and their performance benchmarks were recorded.  The
+[pypy](http://pypy.org/) just-in-time compiler was used in order to reduce
+runtimes on the more complex inputs.
 
 ## Implemented algorithms
 
