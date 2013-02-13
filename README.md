@@ -30,6 +30,8 @@ dataset was used.  The ENGLISH datasets were not used as-is, but with each
 word split on its own line, in order to make the algorithms sort individual
 words and not entire lines.
 
+See the `statistics` file for statistics on the different datasets.
+
 ## Results
 
 Two timing result sets are included in the repository: `times_11.2._16.57`
