@@ -7,7 +7,7 @@ sorted
 radixsort:msd
 quicksort:QuickSort
 quicksort:TernaryQuickSort
-burst:sort
+burst:main
 mkqsort:main
 ::: dataset
 dataset/dna.100MB
