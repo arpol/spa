@@ -16,12 +16,21 @@
 
 import sys
 
-try:
-    module, member = sys.argv[1].rsplit(':', 1)
-except ValueError:
-    func = getattr(__builtins__, sys.argv[1])
+# These two algorithms are special-cased as they operate on the input as one
+# large string, as opposed to a list of lines.
+if sys.argv[1] == 'burst:main':
+    import burst
+    burst.main(sys.argv[2])
+elif sys.argv[1] == 'mkqsort:main':
+    import mkqsort
+    mkqsort.main(sys.argv[2])
 else:
-    func = getattr(__import__(name=module, fromlist=[member]), member)
-with open(sys.argv[2]) as f:
-    for line in func([line.rstrip('\n') for line in f]):
-        print(line)
+    try:
+        module, member = sys.argv[1].rsplit(':', 1)
+    except ValueError:
+        func = getattr(__builtins__, sys.argv[1])
+    else:
+        func = getattr(__import__(name=module, fromlist=[member]), member)
+    with open(sys.argv[2]) as f:
+        for line in func([line.rstrip('\n') for line in f]):
+            print(line)
