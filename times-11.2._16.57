@@ -33,12 +33,7 @@
    pypy         map.py   quicksort:TernaryQuickSort  dataset/words.200MB     71.388
    pypy         map.py   burst:sort                  dataset/dna.100MB       1.292
    pypy         map.py   burst:sort                  dataset/dna.200MB       2.448
-!  pypy         map.py   burst:sort                  dataset/proteins.100MB  Traceback
-(  recent       call     last):                      File                    "app_main.py",
-l  51,          in       run_toplevel                File                    "map.py",
-l  17,          in       <module>                    burst.sort(sys.argv[2])  File
-"  line         166,     in                          sort                    assert
-d  ==           EOS      AssertionError              0.448                   
+!  pypy         map.py   burst:sort                  dataset/proteins.100MB  0.448
    pypy         map.py   burst:sort                  dataset/proteins.200MB  24.846
    pypy         map.py   burst:sort                  dataset/urls.100MB      8.121
    pypy         map.py   burst:sort                  dataset/urls.200MB      16.489
