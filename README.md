@@ -1,14 +1,12 @@
 # String Processing Algorithms - String Sorting
 
-<!-- Author names go here -->
-
 ## Introduction
 
 Python implementations of string sorting algorithms for a university
 programming course.  The algorithms were tested on four separate
 datasets with two differently-sized variants each, and their performance
-benchmarks were recorded (results coming soon).  The [pypy](http://pypy.org/)
-just-in-time compiler was used in order to reduce runtimes.
+benchmarks were recorded.  The [pypy](http://pypy.org/) just-in-time
+compiler was used in order to reduce runtimes on the more complex inputs.
 
 ## Implemented algorithms
 
@@ -31,8 +29,17 @@ dataset was used.  The ENGLISH datasets were not used as-is, but with each
 word split on its own line, in order to make the algorithms sort individual
 words and not entire lines.
 
-In order to preserve space and bandwidth, the exact dataset used will not be
-hosted with the repository, but access to it will be prepared at a later date.
+## Results
+
+Two timing result sets are included in the repository: `times_11.2._16.57`
+and `times-11.2._17.22`, of which the latter is the "official" one.  Though
+the algorithm implementations were not changed between these two runs, the
+former contains one failed burstsort run (marked with a `!` in the leftmost
+column, due to a missing newline at the end of `proteins.100MB`) and only
+the userspace execution time in seconds; though we will likely ignore the
+`real` column in `times-11.2._17.22`, as the execution time of our
+algorithms is more relevant to our analysis than the time the processor
+spent juggling jobs or reading files.
 
 ## Running the algorithms
 
