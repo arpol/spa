@@ -2,7 +2,7 @@
 
 # Usage: stopwatch tests.file > output.file
 # 
-# Measures the execution time of every possible combination of
+# Measures the execution time (in seconds) of every possible combination of
 # arguments in the testset file and echoes the results in columnated format
 # to standard output.  Total execution time is echoed to standard error.
 # The leftmost column is blank if the process in question completed without
