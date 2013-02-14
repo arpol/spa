@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Usage: stopwatch <testset>
+# Usage: stopwatch tests.file > output.file
 # 
 # Measures the execution time of every possible combination of
 # arguments in the testset file and echoes the results in columnated format
@@ -16,7 +16,7 @@
 # GNU parallel, and that is exactly how it is used.)  Lines may be commented
 # by prefixing them with a #.
 # 
-# Example: stopwatch testset > results.csv 2> totaltime
+# Example: stopwatch testset 1> results.csv 2> totaltime
 
 dimensions=$(grep -c ^::: "$1")
 headers=($(grep ^::: "$1"| cut -c 5-))
