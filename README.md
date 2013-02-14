@@ -52,10 +52,11 @@ and `times-11.2._17.22`, of which the latter is the "official" one.  Though
 the algorithm implementations were not changed between these two runs, the
 former contains one failed burstsort run (marked with a `!` in the leftmost
 column, due to a missing newline at the end of `proteins.100MB`) and only
-the userspace execution time in seconds; though we will likely ignore the
+the userspace execution time; though we will likely ignore the
 `real` column in `times-11.2._17.22`, as the execution time of our
 algorithms is more relevant to our analysis than the time the processor
-spent juggling jobs or reading files.
+spent juggling jobs or reading files.  The times documented in the files
+are in seconds.
 
 The [pypy](http://pypy.org) just-in-time compiler was used for running the
 tests as it performed nearly an order of magnitude better on larger
