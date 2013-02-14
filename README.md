@@ -25,6 +25,9 @@ of these algorithms.
 See the specified files for documentation on the algorithms.  With the exception
 of insertion sort, all implementations were timed; the insertion sort was excepted as
 it is a naive implementation, lacking any optimizations for sorting sequential data.
+In its place, the Python builtin `sorted` function (using the
+[Timsort](http://en.wikipedia.org/wiki/Timsort) algorithm) was timed to see how well
+our implementations measure against highly optimized general-purpose solutions.
 
 ## Test data
 
