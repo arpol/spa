@@ -44,9 +44,9 @@ def msd(iterable, depth=0):
             # are eventually pushed to output, they come first as well.
             for bucket in reversed(buckets):
                 # Buckets smaller than the alphabet are better sorted with
-                # string quicksort, so we do exactly that and mark the bucket
-                # as pre-sorted.  The rest are pushed to the stack as-is,
-                # with the sorting depth incremented by one.
+                # string quicksort, so we use Arturs's implementation and mark
+                # the bucket as pre-sorted.  The rest are pushed to the stack
+                # as-is, with the sorting depth incremented by one.
                 if len(bucket) < 256:
                     stack.append((quicksort.QuickSort(bucket, depth+1), -1))
                 else:
