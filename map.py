@@ -3,7 +3,7 @@
 
 # Usage: ./map.py path.to.module:function input.file > output.file
 # 
-# Reads the input file as a list of strings and passes it to the named
+# Read the input file as a list of strings and pass it to the named
 # function, printing each string of output on its own line to standard
 # output.  The function must take as its argument an iterable over
 # strings and return an iterable over strings.  Python built-in
