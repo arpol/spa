@@ -1,0 +1,33 @@
+#!/bin/bash
+# Process xfig picture for inclusion into LaTeX file
+#
+# Usage: ./fig2tex [-m magnification] FILE.fig [FILE2.fig ...]
+# Default magnification is 1.0
+# Produces files FILE.pdf FILE.eps and FILE.tex
+# Use \input{FILE.tex} to insert into LaTeX file
+# Works with both latex and pdflatex
+# FILE may also specify a path: This script should be
+# run in the directory that contains the LaTeX file.
+# The produced .pdf .eps and .tex will be placed 
+# in the same directory as the .fig file.
+#
+MAG=""
+if [ "$1" = "-m" ]; then
+  MAG="$1 $2"
+  shift
+  shift
+fi
+for FILE
+do
+  BASENAME=`basename ${FILE} .fig`
+  DIR=`dirname ${FILE}`
+  NAME="${DIR}/${BASENAME}"
+  if [ -f ${NAME}.fig ]; then
+    fig2dev ${MAG} -L pstex ${NAME}.fig > ${NAME}.eps
+    fig2dev ${MAG} -L pdftex ${NAME}.fig > ${NAME}.pdf
+    fig2dev ${MAG} -L pdftex_t -p ${NAME}.pdf ${NAME}.fig > ${NAME}.pdf_t
+    sed -e "s!${NAME}.pdf!${NAME}!" ${NAME}.pdf_t > ${NAME}.tex
+    rm ${NAME}.pdf_t
+  else echo File \"${NAME}.fig\" does not exist
+  fi
+done

@@ -1,0 +1,105 @@
+% Three-column stuff
+%
+% The vertical size of the columns depends on the content, so unfortunately you have to manually move contents around
+
+% First column
+\begin{textblock}{60}(0,20)
+  {\sffamily\normalsize{\color{sciorange}BURROWS--WHEELER
+      TRANSFORM}}\vspace{1mm}\\ % Titles among the main text are made like this, not by using \section
+  \footnotesize 
+The Burrows--Wheeler transform (BWT) is an invertible text transform
+defined as follows.\vspace{3mm}
+
+{\scriptsize\sffamily
+\quad{\bf Input: } text $T={}$BANANA\eos
+\vspace{2mm}
+
+\tabcolsep=.25em
+\quad\begin{minipage}[t]{26mm}
+\raggedright
+%\centering
+  1. Build a matrix with the text \emph{rotations} as rows
+\begin{center}
+\sffamily
+    \begin{tabular}{ccccccc}
+ %   \multicolumn{1}{c}{$F$} &&&&&\multicolumn{1}{c}{}& \multicolumn{1}{c}{}\\
+    B&A&N&A&N&A&\eos\\
+    A&N&A&N&A&\eos&B\\
+    N&A&N&A&\eos&B&A\\
+    A&N&A&\eos&B&A&N\\
+    N&A&\eos&B&A&N&A\\
+    A&\eos&B&A&N&A&N\\
+    \eos&B&A&N&A&N&A\\
+  \end{tabular}
+  \end{center}
+\end{minipage}
+% \parbox[t]{6mm}{\centering \mbox{}\\\rule{0pt}{20mm}
+% $\overset{\textrm{sort}}{\Rightarrow}$
+% }%
+\hfill
+\begin{minipage}[t]{28mm}
+\centering 2. Sort the rows
+\begin{center}
+\sffamily
+    \begin{tabular}{|c|ccccc|c|}
+    \multicolumn{1}{c}{$F$} &&&&&\multicolumn{1}{c}{}& \multicolumn{1}{c}{$L$}\\
+    \cline{1-1}\cline{7-7}
+    \eos&B&A&N&A&N&A\\
+    A&\eos&B&A&N&A&N\\
+    A&N&A&\eos&B&A&N\\
+    A&N&A&N&A&\eos&B\\
+    B&A&N&A&N&A&\eos\\
+    N&A&\eos&B&A&N&A\\
+    N&A&N&A&\eos&B&A\\
+    \cline{1-1}\cline{7-7}
+  \end{tabular}
+\end{center}
+\end{minipage}
+\vspace{2mm}
+
+\quad{\bf Output: } BWT $L={}$ANNB\eos AA (the last column)
+\vspace{3mm}
+}
+
+\footnotesize The properties of the BWT make it easier to
+compress than the original text. It is used as the first stage in many
+compression programs including the widely used bzip2 (thus the b).
+
+\end{textblock} 
+
+% Second column
+\begin{textblock}{60}(65,20)
+  {\sffamily\normalsize{\color{sciorange}INVERSE BWT}}\vspace{1mm}\\
+  \footnotesize 
+  Define
+  $
+    \rank(j)=\big|\{i \mid i<j \textrm{ and }
+    L[i]=L[j]\}\big|.
+  $
+
+The BWT can be inverted as follows.
+\vspace{3mm}
+
+\scriptsize\sffamily
+\quad{\bf Input: } BWT $L={}$ANNB\eos AA
+\vspace{2mm}
+
+\quad\begin{minipage}{55mm}
+\scriptsize\sffamily
+1. Compute $C$ and \rank\ arrays by scanning $L$
+\scriptsize\sffamily
+\begin{center}
+\hspace*{-5mm}\input{permutation}  
+\end{center}
+2. Starting at $L[i]={}$\eos, follow the permutation:
+\[
+i \mapsto C[L[i]]+\rank(i)
+\]
+\hspace{2.3mm}Output $L[i]$ at each step
+\end{minipage}
+\vspace{2mm}
+
+\scriptsize\sffamily
+\quad{\bf Output: } reverse text $T^R={}$\eos ANANAB
+
+\end{textblock}

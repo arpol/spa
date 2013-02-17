@@ -1,0 +1,30 @@
+# Compile xfig figures
+./fig2tex -m .72 copy1.fig
+./fig2tex -m .72 copy2.fig
+./fig2tex -m .72 LR-B.fig
+./fig2tex -m .72 LR-I.fig
+./fig2tex -m .72 permutation.fig
+./fig2tex -m .72 variable.fig
+
+# Make ps poster
+latex poster_ibwt
+bibtex poster_ibwt
+latex poster_ibwt
+latex poster_ibwt
+dvips poster_ibwt
+
+# Split poster into 16 A4s
+./poster -mA4 -pA0 poster_ibwt.ps > poster_ibwt_A4.ps
+ps2pdf poster_ibwt_A4.ps
+
+# Split poster into 8 A3s
+#./poster -mA3 -pA0 poster_ibwt.ps > poster_ibwt_A3.ps
+#ps2pdf poster_ibwt_A3.ps
+
+# Make pdf poster
+#epstopdf eng100Mb-new.eps
+#epstopdf dna100Mb-new.eps
+#pdflatex poster_ibwt
+#bibtex poster_ibwt
+#pdflatex poster_ibwt
+#pdflatex poster_ibwt
