@@ -5,3 +5,5 @@ results
 poster/remove
 *.aux
 *.log
+poster/*.aux
+poster/*.log
