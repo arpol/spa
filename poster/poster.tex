@@ -81,6 +81,11 @@
 % you could also add some space between paragraphs here, but I use manual vertical spaces in this sample
 \setlength{\parindent}{0pt}
 
+%Nice table cell formatting for multirow cells:
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\usepackage{multicol}
+
 
 % Finally, the content
 \begin{document}

@@ -2,104 +2,38 @@
 %
 % The vertical size of the columns depends on the content, so unfortunately you have to manually move contents around
 
-% First column
-\begin{textblock}{60}(0,20)
-  {\sffamily\normalsize{\color{sciorange}BURROWS--WHEELER
-      TRANSFORM}}\vspace{1mm}\\ % Titles among the main text are made like this, not by using \section
-  \footnotesize 
-The Burrows--Wheeler transform (BWT) is an invertible text transform
-defined as follows.\vspace{3mm}
+\begin{textblock}{120}(0,20)
+\sffamily\normalsize{\color{sciorange}DATA SET}\small\\
+\rule[3mm]{125mm}{0.1pt}
+\end{textblock} 
+\begin{textblock}{120}(0,20)
+ \footnotesize 
+%TODO: Create bibliography for this
+\begin{multicols}{2}
+The timing test data consisted of the PROTEINS, DNA and ENGLISH datasets from the Pizza\&Chili Corpus, in addition to a set of URLs from Ranjan Sinha's ref1 data ref2 for his original Burstsort paper. \\
 
-{\scriptsize\sffamily
-\quad{\bf Input: } text $T={}$BANANA\eos
-\vspace{2mm}
+A 100MB and a 200MB sample of each dataset was used. The ENGLISH datasets were not used as-is, but with each word split on its own line, in order to make the algorithms sort individual words and not entire lines. The statistics file documents some stringological properties of these datasets.
 
-\tabcolsep=.25em
-\quad\begin{minipage}[t]{26mm}
-\raggedright
-%\centering
-  1. Build a matrix with the text \emph{rotations} as rows
+ref1 https://sites.google.com/site/ranjansinha/home \\
+ref2 http://www.cs.mu.oz.au/~rsinha/resources/data/sort.data.zip \\
+
+\end{multicols}
 \begin{center}
-\sffamily
-    \begin{tabular}{ccccccc}
- %   \multicolumn{1}{c}{$F$} &&&&&\multicolumn{1}{c}{}& \multicolumn{1}{c}{}\\
-    B&A&N&A&N&A&\eos\\
-    A&N&A&N&A&\eos&B\\
-    N&A&N&A&\eos&B&A\\
-    A&N&A&\eos&B&A&N\\
-    N&A&\eos&B&A&N&A\\
-    A&\eos&B&A&N&A&N\\
-    \eos&B&A&N&A&N&A\\
-  \end{tabular}
-  \end{center}
-\end{minipage}
-% \parbox[t]{6mm}{\centering \mbox{}\\\rule{0pt}{20mm}
-% $\overset{\textrm{sort}}{\Rightarrow}$
-% }%
-\hfill
-\begin{minipage}[t]{28mm}
-\centering 2. Sort the rows
-\begin{center}
-\sffamily
-    \begin{tabular}{|c|ccccc|c|}
-    \multicolumn{1}{c}{$F$} &&&&&\multicolumn{1}{c}{}& \multicolumn{1}{c}{$L$}\\
-    \cline{1-1}\cline{7-7}
-    \eos&B&A&N&A&N&A\\
-    A&\eos&B&A&N&A&N\\
-    A&N&A&\eos&B&A&N\\
-    A&N&A&N&A&\eos&B\\
-    B&A&N&A&N&A&\eos\\
-    N&A&\eos&B&A&N&A\\
-    N&A&N&A&\eos&B&A\\
-    \cline{1-1}\cline{7-7}
-  \end{tabular}
+\begin{tabular}{| l | l | l | l | l | l |}
+\hline
+\specialcell{Dataset} & \specialcell{Number \\ of strings} &\specialcell{Sum of\\ lengths}& \specialcell{Max \\ string length} & \specialcell{alphabet \\ size}&  \specialcell{Sum of \\ LCP array}  \\ 
+\hline
+dna.100MB&  618&    104856983&  3732300&    15& 4501\\
+dna.200MB&  1114&   209714087&  3732300&    15& 8948\\
+proteins.100MB& 359505& 104498096&  36805&  24& 18853436\\
+proteins.200MB& 709116& 209006085&  36805&  24& 50076184\\
+urls.100MB& 3284368&    101569109&  372&    114&    94113004\\
+urls.200MB& 6576059&    203139142&  560&    114&    191545831\\
+words.100MB&    18502734&   85200064&   112&    211&    83643408\\
+words.200MB&    37003241&   170395992&  112&    220&    168115390\\
+\hline
+\end{tabular}
 \end{center}
-\end{minipage}
-\vspace{2mm}
-
-\quad{\bf Output: } BWT $L={}$ANNB\eos AA (the last column)
-\vspace{3mm}
-}
-
-\footnotesize The properties of the BWT make it easier to
-compress than the original text. It is used as the first stage in many
-compression programs including the widely used bzip2 (thus the b).
 
 \end{textblock} 
 
-% Second column
-\begin{textblock}{60}(65,20)
-  {\sffamily\normalsize{\color{sciorange}INVERSE BWT}}\vspace{1mm}\\
-  \footnotesize 
-  Define
-  $
-    \rank(j)=\big|\{i \mid i<j \textrm{ and }
-    L[i]=L[j]\}\big|.
-  $
-
-The BWT can be inverted as follows.
-\vspace{3mm}
-
-\scriptsize\sffamily
-\quad{\bf Input: } BWT $L={}$ANNB\eos AA
-\vspace{2mm}
-
-\quad\begin{minipage}{55mm}
-\scriptsize\sffamily
-1. Compute $C$ and \rank\ arrays by scanning $L$
-\scriptsize\sffamily
-\begin{center}
-\hspace*{-5mm}\input{permutation}  
-\end{center}
-2. Starting at $L[i]={}$\eos, follow the permutation:
-\[
-i \mapsto C[L[i]]+\rank(i)
-\]
-\hspace{2.3mm}Output $L[i]$ at each step
-\end{minipage}
-\vspace{2mm}
-
-\scriptsize\sffamily
-\quad{\bf Output: } reverse text $T^R={}$\eos ANANAB
-
-\end{textblock}
