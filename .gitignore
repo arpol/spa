@@ -7,3 +7,5 @@ poster/remove
 *.log
 poster/*.aux
 poster/*.log
+poster/sections/*.aux
+poster/sections/*.log
