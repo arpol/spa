@@ -1,0 +1,74 @@
+
+% Misc. packages
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{amsfonts}
+\usepackage[absolute]{textpos}
+\usepackage{amssymb}
+\usepackage{amsmath} 
+\usepackage{amsthm}
+
+% Graphics stuff
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{graphicx}
+
+
+% My favourite macros
+\newcommand{\N}{\mathbb{N}} %natural numbers
+\newcommand{\Z}{\mathbb{Z}} %integers
+\newcommand{\Q}{\mathbb{Q}} %rationals
+\newcommand{\R}{\mathbb{R}} %reals
+
+\newcommand{\G}{\mathcal{G}} % fancy G
+\newcommand{\A}{\mathcal{A}} % fancy A
+\newcommand{\bO}{\mathcal{O}} % fancy O
+
+\newcommand{\eos}{\#}
+\newcommand{\rank}{\textsc{rank}}
+
+
+% enumitem for controlling enumerate and itemize environments; usefull for saving space
+\usepackage{enumitem}
+
+
+% Fonts
+%
+% Palantino - Helvetica - Courier.
+% I haven't really spent time to figure out how to best match the official university style with latex font packages, as I use XeTex myself...
+\usepackage{mathpazo}
+\linespread{1.10}
+\usepackage[scaled]{helvet}
+\usepackage{courier}
+
+% Colours
+\definecolor{sciorange}{RGB}{252,163,17}
+\definecolor{unigray}{RGB}{140,140,140}
+\definecolor{first}{RGB}{180,30,10}
+\definecolor{second}{RGB}{10,120,130}
+\definecolor{new}{RGB}{190,50,10}
+\definecolor{wavelet}{RGB}{70,140,220}
+%\definecolor{improved}{RGB}{80,200,80}
+\definecolor{improved}{RGB}{10,100,160}
+\definecolor{prior}{RGB}{140,140,140}
+
+% Textpos to manually position blocks of text on the page
+\usepackage[absolute]{textpos}
+
+% We define 1 mm grid for positioning the text blocks on the page
+% The idea is to leave 10 mm marginals to all sides; the three text columns are 60 mm wide with 5 mm space between columns.
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+% The origin is set to right below the main title; this means that main title blocks have negative y-coordinate. There is actually no good reason for this, I just happened to do this that way.
+\textblockorigin{10mm}{48.5mm}
+
+
+% parindent is set to zero, because it looks better in posters
+% you could also add some space between paragraphs here, but I use manual vertical spaces in this sample
+\setlength{\parindent}{0pt}
+
+%Nice table cell formatting for multirow cells:
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\usepackage{multicol}
+ 

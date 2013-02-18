@@ -1,0 +1,173 @@
+% This is a LaTeX template for poster using University of Helsinki style
+% This version uses pdflatex; if you have XeTeX available, 
+% consider using poster_xetex.tex for fancy font settings
+%
+% The official Graphical Instructions available from hy.logodomain.com (from university network only) defines colours, fonts etc. This Template does not perfectly match the official poster template of the university
+%
+% Jukka Suomela's collection of LaTeX tricks has been invaluable in building this template: http://cs.helsinki.fi/u/josuomel/latex/ 
+%
+% Original template by Janne Korhonen
+% This file by Juha Karkkainen
+
+% Encoding of this file is iso-8859-1 latin 1
+
+\documentclass[a4paper]{article} % This actually makes poster of size A4, scale up when printing. Used text font size is a bit small for A1 poster, preferably use \small in that case 
+
+% Misc. packages
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{amsfonts}
+\usepackage[absolute]{textpos}
+\usepackage{amssymb}
+\usepackage{amsmath} 
+\usepackage{amsthm}
+
+% Graphics stuff
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{graphicx}
+
+
+% My favourite macros
+\newcommand{\N}{\mathbb{N}} %natural numbers
+\newcommand{\Z}{\mathbb{Z}} %integers
+\newcommand{\Q}{\mathbb{Q}} %rationals
+\newcommand{\R}{\mathbb{R}} %reals
+
+\newcommand{\G}{\mathcal{G}} % fancy G
+\newcommand{\A}{\mathcal{A}} % fancy A
+\newcommand{\bO}{\mathcal{O}} % fancy O
+
+\newcommand{\eos}{\#}
+\newcommand{\rank}{\textsc{rank}}
+
+
+% enumitem for controlling enumerate and itemize environments; usefull for saving space
+\usepackage{enumitem}
+
+
+% Fonts
+%
+% Palantino - Helvetica - Courier.
+% I haven't really spent time to figure out how to best match the official university style with latex font packages, as I use XeTex myself...
+\usepackage{mathpazo}
+\linespread{1.10}
+\usepackage[scaled]{helvet}
+\usepackage{courier}
+
+% Colours
+\definecolor{sciorange}{RGB}{252,163,17}
+\definecolor{unigray}{RGB}{140,140,140}
+\definecolor{first}{RGB}{180,30,10}
+\definecolor{second}{RGB}{10,120,130}
+\definecolor{new}{RGB}{190,50,10}
+\definecolor{wavelet}{RGB}{70,140,220}
+%\definecolor{improved}{RGB}{80,200,80}
+\definecolor{improved}{RGB}{10,100,160}
+\definecolor{prior}{RGB}{140,140,140}
+
+% Textpos to manually position blocks of text on the page
+\usepackage[absolute]{textpos}
+
+% We define 1 mm grid for positioning the text blocks on the page
+% The idea is to leave 10 mm marginals to all sides; the three text columns are 60 mm wide with 5 mm space between columns.
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+% The origin is set to right below the main title; this means that main title blocks have negative y-coordinate. There is actually no good reason for this, I just happened to do this that way.
+\textblockorigin{10mm}{48.5mm}
+
+
+% parindent is set to zero, because it looks better in posters
+% you could also add some space between paragraphs here, but I use manual vertical spaces in this sample
+\setlength{\parindent}{0pt}
+
+%Nice table cell formatting for multirow cells:
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\usepackage{multicol}
+
+
+% Finally, the content
+\begin{document}
+\pagestyle{empty} % To get rid of page numbers and so
+
+
+% ------------------------------------------------------------------------------------------------------------------------------
+% Main title, University logo etc.
+
+% If you need more space for the title or want the logo to be bigger, you need to adjust various parameters, as I did not bother to automate this yet
+% Mainly, move the textblockorigin above down and adjust all the boxes here to be higher up.
+
+% First, the University logo. The included flame.pdf is a copy of the official logo in vector format, so it is good for all sizes.
+% Box starts 10 mm from the top
+\begin{textblock}{95}(0,-38.5)
+\includegraphics[width=22mm]{flame}
+\end{textblock}	
+
+% University - Faculty - Department
+% Box starts 10 mm from the top
+\begin{textblock}{95}(95,-38.5)
+{\fontsize{8}{7}\selectfont\sffamily\color{unigray}
+\hfill HELSINGIN YLIOPISTO
+
+\hfill HELSINGFORS UNIVERSITET
+
+\hfill UNIVERSITY OF HELSINKI
+
+\color{sciorange}\hfill MATEMAATTIS-LUONNONTIETEELLINEN TIEDEKUNTA
+
+\hfill MATEMATISK-NATURVETENSKAPLIGA FAKULTETEN
+
+\hfill FACULTY OF SCIENCE % For some reason, the last line here gets messed up without extra spaces...
+
+
+}
+\end{textblock}
+
+
+% Main title
+% If you need two lines for the title, you need to adjust the position of this block and textblockorigin
+% Remember, two first words use faculty colour. If your title is long, you can use small letters.
+\begin{textblock}{190}(0,-13.5)
+{\sffamily\LARGE{\color{sciorange}String Sorting in Python -- }{\color{unigray}
+ Comparison of Several Algorithms}}\\
+\small\hfill Onni Koskinen, Arturs Polis, and Lari Rasku\\ % If you have multiple authors, their names can be on the same line. Adjust font size as necessary
+\rule[2mm]{190mm}{0.3pt} % This is the line under the title, adjust the last parameter if it seems to be in the wrong place
+\end{textblock}
+
+% ------------------------- ABSTRACT ----------------------------------
+\input{sections/abstract.tex}
+
+% Large subtitle with line. Again, not from the university template.
+%\begin{textblock}{190}(0,25)
+%\sffamily
+%\Large{\color{sciorange}ARITHMETIZATION}\small\\
+%\rule[3mm]{190mm}{0.3pt}
+%\end{textblock} 
+
+% ---------------------------- INTRO ----------------------------------
+\input{sections/intro.tex}
+
+% ----------------------- ALGORITHMS ----------------------------
+
+\input{sections/algorithms.tex}
+	
+%---------------------- RIGHT COLUMN ------------------------------
+% Third column
+
+\input{sections/experimental_data.tex}
+
+%\begin{textblock}{60}(130,165)
+%  {\sffamily\normalsize{\color{sciorange}CONCLUDING REMARKS}}\vspace{1mm}\\
+%  \footnotesize 
+%\end{textblock}
+
+\begin{textblock}{180}(0, 205)
+  \def\refname{\normalfont\sffamily\normalsize{\color{sciorange}REFERENCES}}
+  \scriptsize\sffamily
+  \bibliographystyle{abbrv}
+  \bibliography{poster}
+\end{textblock}
+% Unfortunately, this template has no references. The official instructions seem to indicate that sans-serif font is used for the reference list.
+
+\end{document}

@@ -23,37 +23,36 @@
 % Main title, University logo etc.
 \input{sections/header.tex}
 
+% ------------------------- TEST DATA SET  ----------------------------------
+\input{sections/dataset.tex}
 
-% ------------------------- ABSTRACT ----------------------------------
-\input{sections/abstract.tex}
 
-% Large subtitle with line. Again, not from the university template.
-%\begin{textblock}{190}(0,25)
-%\sffamily
-%\Large{\color{sciorange}ARITHMETIZATION}\small\\
-%\rule[3mm]{190mm}{0.3pt}
-%\end{textblock} 
-
-% ---------------------------- INTRO ----------------------------------
-\input{sections/intro.tex}
+% ---------------------------- RESULTS DATA----------------------------------
+\input{sections/resultsdata.tex}
 
 % ----------------------- ALGORITHMS ----------------------------
 
-\input{sections/algorithms.tex}
+%\input{sections/algorithms.tex}
 	
+%---------------------- RIGHT COLUMN ------------------------------
+% Third column
+\begin{textblock}{60}(130,5)
+    \input{sections/experimental_data.tex}
+\end{textblock}
 
+%\input{sections/experimental_data.tex}
 
 %\begin{textblock}{60}(130,165)
 %  {\sffamily\normalsize{\color{sciorange}CONCLUDING REMARKS}}\vspace{1mm}\\
 %  \footnotesize 
 %\end{textblock}
 
-\begin{textblock}{180}(0, 205)
-  \def\refname{\normalfont\sffamily\normalsize{\color{sciorange}REFERENCES}}
-  \scriptsize\sffamily
-  \bibliographystyle{abbrv}
-  \bibliography{poster}
-\end{textblock}
+%\begin{textblock}{180}(0, 205)
+%  \def\refname{\normalfont\sffamily\normalsize{\color{sciorange}REFERENCES}}
+%  \scriptsize\sffamily
+%  \bibliographystyle{abbrv}
+%  \bibliography{poster}
+%\end{textblock}
 % Unfortunately, this template has no references. The official instructions seem to indicate that sans-serif font is used for the reference list.
 
 \end{document}

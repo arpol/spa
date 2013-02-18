@@ -1,0 +1,40 @@
+ 
+% If you need more space for the title or want the logo to be bigger, you need to adjust various parameters, as I did not bother to automate this yet
+% Mainly, move the textblockorigin above down and adjust all the boxes here to be higher up.
+
+% First, the University logo. The included flame.pdf is a copy of the official logo in vector format, so it is good for all sizes.
+% Box starts 10 mm from the top
+\begin{textblock}{95}(0,-38.5)
+\includegraphics[width=22mm]{flame}
+\end{textblock} 
+
+% University - Faculty - Department
+% Box starts 10 mm from the top
+\begin{textblock}{95}(95,-38.5)
+{\fontsize{8}{7}\selectfont\sffamily\color{unigray}
+\hfill HELSINGIN YLIOPISTO
+
+\hfill HELSINGFORS UNIVERSITET
+
+\hfill UNIVERSITY OF HELSINKI
+
+\color{sciorange}\hfill MATEMAATTIS-LUONNONTIETEELLINEN TIEDEKUNTA
+
+\hfill MATEMATISK-NATURVETENSKAPLIGA FAKULTETEN
+
+\hfill FACULTY OF SCIENCE % For some reason, the last line here gets messed up without extra spaces...
+
+
+}
+\end{textblock}
+
+
+% Main title
+% If you need two lines for the title, you need to adjust the position of this block and textblockorigin
+% Remember, two first words use faculty colour. If your title is long, you can use small letters.
+\begin{textblock}{190}(0,-13.5)
+{\sffamily\LARGE{\color{sciorange}String Sorting in Python -- }{\color{unigray}
+ Comparison of Several Algorithms}}\\
+\small\hfill Onni Koskinen, Arturs Polis, and Lari Rasku\\ % If you have multiple authors, their names can be on the same line. Adjust font size as necessary
+\rule[2mm]{190mm}{0.3pt} % This is the line under the title, adjust the last parameter if it seems to be in the wrong place
+\end{textblock}
