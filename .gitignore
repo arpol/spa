@@ -7,3 +7,4 @@ remove
 *.log
 sections/*.aux
 sections/*.log
+sections/.*
