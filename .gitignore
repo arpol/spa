@@ -2,10 +2,8 @@ __pycache__
 dataset
 *.pyc
 results
-poster/remove
+remove
 *.aux
 *.log
-poster/*.aux
-poster/*.log
-poster/sections/*.aux
-poster/sections/*.log
+sections/*.aux
+sections/*.log
