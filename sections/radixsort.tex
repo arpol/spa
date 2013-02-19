@@ -1,7 +1,21 @@
 {\sffamily\normalsize{\color{sciorange} MSD RADIX SORT}}\vspace{1mm}\\
 \footnotesize 
-MSD Radix sort text
-MSD Radix sort textblock MSD Radix sort text 
-MSD Radix sort text MSD Radix sort text
-MSD Radix sort text MSD Radix sort text block
-MSD Radix sort text\\
+MSD (most significant digit) radix sort is a divide-and-conquer algorithm that
+partitions the strings based on their character at a given position.  The
+comparison position starts from 0 and increases with one at every recursion
+level.  No position, then, is visited twice; and if the algorithm does not
+attempt to partition buckets of size 1 or consisting entirely of strings
+shorter than the recursion depth, each string is visited at most one more time
+than the length of its shortest distinguishing prefix.  Thus, the partitioning
+takes at most $O(L(R)+n)$ time, where $L(R)$ is the sum of the LCP array.
+
+However, efficient implementations require the buckets to be implemented as an
+array of linked lists in order to avoid the overhead of binary search tree
+insertions and lookups.  This allows true constant time insertion to buckets,
+but wastes time and memory if the strings use only a fraction of the alphabet
+for which MSD radix sort allocates space.  Likewise, if the number of strings
+is smaller than the size of the alphabet, standard comparison based string
+sorting algorithms outperform MSD radix sort.
+
+Our implementation uses a fixed alphabet size of 256 and falls back to ternary
+quicksort when the size of the bucket drops below it.
