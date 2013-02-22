@@ -1,4 +1,4 @@
-# Abstract
+# Introduction
 
 Comparison-based sorting is one of the most mature subfields of CS research.
 However, the more well-known of such algorithms have been designed with the
@@ -109,7 +109,7 @@ sum size and highest in alphabet size, due to common words appearing hundreds of
 times in the text and some loan words using characters not in the English
 alphabet.
 
-# Results
+# Conclusion
 
 Our choice of a fixed alphabet of 256 symbols for MSD radix sort definitely
 hurt its performance: less than half of the buckets allocated at each
