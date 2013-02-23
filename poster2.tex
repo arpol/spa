@@ -23,30 +23,30 @@
 \input{sections/header.tex}
 
 % ------------------------- TEST DATA SET  ----------------------------------
-\begin{textblock}{100}(0,5)
+\begin{textblock}{70}(0,0)
     \input{sections/dataset.tex}
 \end{textblock} 
 
 % ---------------------------- RESULTS DATA----------------------------------
-\begin{textblock}{120}(0,80)
+\begin{textblock}{100}(80,0)
     \input{sections/resultsdata.tex}
 \end{textblock}
 
-% ----------------------- ALGORITHMS ----------------------------
-
-%\input{sections/algorithms.tex}
-	
 %---------------------- RIGHT COLUMN ------------------------------
 % Third column
-\begin{textblock}{60}(130,5)
+\begin{textblock}{190}(0,60)
     \input{sections/experimental_data.tex}
 \end{textblock}
 
+% ----------------------- Conclusion -----------------------------
+\begin{textblock}{190}(0,180)
+    \input{sections/conclusions.tex}
+\end{textblock}
+
 %----------------------  ------------------------------
-\begin{textblock}{180}(0, 215)
-  \def\refname{\normalfont\sffamily\normalsize{\color{sciorange}REFERENCES}}
+\begin{textblock}{180}(0, 218)
+  \def\refname{\normalfont\sffamily\normalsize{\color{sciorange}REFERENCES}\vspace{-3mm}}
   \scriptsize\sffamily
-  \bibliographystyle{abbrv}
   \bibliography{poster}
   \input{poster.bbl}
 \end{textblock}

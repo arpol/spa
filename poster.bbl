@@ -1,5 +1,5 @@
 \begin{thebibliography}{1}
-    \setlength{\columnsep}{1cm}
+    \setlength{\columnsep}{5mm}
     \begin{multicols}{2}
         \bibitem{p2002}
         T.~Peters.
