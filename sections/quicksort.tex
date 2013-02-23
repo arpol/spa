@@ -1,18 +1,22 @@
-{\sffamily\normalsize{\color{sciorange} QUICKSORT ALGORITHMS}}\vspace{1mm}\\
+{\sffamily\normalsize{\color{sciorange} QUICKSORT}}\vspace{1mm}\\
 \footnotesize 
-Quicksort text  
-Quicksort text 
-Quicksort text  
-Quicksort text 
-Quicksort text  
-Quicksort text 
-Quicksort text  
-Quicksort text 
-Quicksort text  
-Quicksort text 
-Quicksort text  
-Quicksort text 
-Quicksort text  
-Quicksort text 
-Quicksort text  
-Quicksort text 
+String quicksort operates by recursively paritioning the collection of strings corresponding to their lexicographical order compared to the pivot string.\\ 
+
+Good pivot selection seeks to reduce the maximum depth of the recursion tree. For quicksort we selected the pivot as the median of the first, the last, and the middle element of an array of strings.\\
+
+Ternary quicksort partitions the strings based on whole string comparison. Resulting sets are:
+    
+\begin{itemize}
+    \item Equal to the pivot
+    \item Lexicographically smaller than the pivot
+    \item Lexicographically larger than the pivot
+\end{itemize}
+
+Multikey quicksort partitions the strings using a single character comparison. To do this multikey quicksort maintains the index of the character currently being compared. The resulting partitioning is almost the same as in the ternary quicksort, multikey quicksort keeps an extra partition for strings with the currently compared character being their last. 
+
+The sets are then recursively partitioned again and again until each partition contains only one string. After that the strings are returned in the reverse order of recursion resulting in a sorted array of strings. 
+
+Quicksort sorts strings in time $O(L(R) + n \log n)$.
+
+
+
