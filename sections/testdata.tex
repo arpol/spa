@@ -2,20 +2,36 @@
 %
 % The vertical size of the columns depends on the content, so unfortunately you have to manually move contents around
 
-\begin{textblock}{180}(0,149)
-\sffamily\normalsize{\color{sciorange}TEST DATA}\small\\
+\begin{textblock}{180}(0,152)
+\sffamily\normalsize{\color{sciorange}DATASETS}\small\\
 \rule[3mm]{190mm}{0.1pt}
 \end{textblock} 
-\begin{textblock}{190}(0,152)
+\begin{textblock}{190}(0,155)
  \footnotesize 
 %TODO: Create bibliography for this
 \begin{multicols}{3}
-The timing test data consisted of the PROTEINS, DNA and ENGLISH datasets from the Pizza\&Chili Corpus, in addition to a set of URLs from Ranjan Sinha's ref1 data ref2 for his original Burstsort paper. \\
+With the exception of the URLs dataset, all datasets were retrieved from
+the Pizza \& Chili Corpus [2]; the URL dataset is the one used by Ranjan Sinha
+in his original burstsort paper [3]. The algorithms were tested on a sample
+of 100 and 200 megabytes with each dataset.\\\\
+%ref1 https://sites.google.com/site/ranjansinha/home \\
+%ref2 http://www.cs.mu.oz.au/~rsinha/resources/data/sort.data.zip \\
+\sffamily\normalsize{\color{sciorange}DNA}\small\\
+\footnotesize 
+The DNA dataset consists of sequences of nucleotide codes, all exactly $3732300$
+characters in length.  This is by far the easiest dataset, having the smallest
+number of strings and the smallest LCP array sum; very little of the extremely
+long strings is actually required for sorting them.
 
-A 100MB and a 200MB sample of each dataset was used. The ENGLISH datasets were not used as-is, but with each word split on its own line, in order to make the algorithms sort individual words and not entire lines. The statistics file documents some stringological properties of these datasets.
+\sffamily\normalsize{\color{sciorange}URLS}\small\\
+\footnotesize 
+The URLS dataset consists of several web addresses.  Due to most common URLs
+having similar prefixes, as well as the dataset containing several duplicate
+URLs, this dataset has the highest LCP array sum, though not significantly
+higher than the WORDS dataset.
 
-ref1 https://sites.google.com/site/ranjansinha/home \\
-ref2 http://www.cs.mu.oz.au/~rsinha/resources/data/sort.data.zip \\
+
+
 \end{multicols}
 
 \end{textblock} 
