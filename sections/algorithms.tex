@@ -2,16 +2,25 @@
 \sffamily\normalsize{\color{sciorange}ALGORITHMS}\small\\
 \rule[3mm]{190mm}{0.1pt}
 \end{textblock}
-
+\begin{textblock}{190}(0,31)
+\begin{multicols}{3}
+\footnotesize
+String processing algorithms distinguish themselves from naive comparison
+algorithms by maintaining knowledge of the lengths of the *longest common
+prefixes* (LCP) of pairs of input strings as they sort them, which they use to
+avoid redundant comparisons.  The *LCP array* of a set of strings, by
+extension, is defined as follows:
+\end{multicols}
+\end{textblock}
 %leaving the column location definitions outside of the actual content
-\begin{textblock}{60}(0,39)
+\begin{textblock}{60}(0,58)
     \input{sections/radixsort.tex}
 \end{textblock}
 
-\begin{textblock}{60}(65,39)
+\begin{textblock}{60}(65,58)
     \input{sections/quicksort.tex}
 \end{textblock}
 
-\begin{textblock}{60}(130,39)
+\begin{textblock}{60}(130,58)
     \input{sections/burstsort.tex}
 \end{textblock}
