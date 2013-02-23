@@ -28,7 +28,7 @@
 \end{textblock} 
 
 % ---------------------------- RESULTS DATA----------------------------------
-\begin{textblock}{120}(0,180)
+\begin{textblock}{120}(0,80)
     \input{sections/resultsdata.tex}
 \end{textblock}
 
@@ -46,7 +46,8 @@
 \begin{textblock}{180}(0, 215)
   \def\refname{\normalfont\sffamily\normalsize{\color{sciorange}REFERENCES}}
   \scriptsize\sffamily
-  %\bibliographystyle{abbrv}
+  \bibliographystyle{abbrv}
   \bibliography{poster}
+  \input{poster.bbl}
 \end{textblock}
 \end{document}
