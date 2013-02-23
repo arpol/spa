@@ -2,35 +2,42 @@
 %
 % The vertical size of the columns depends on the content, so unfortunately you have to manually move contents around
 
-\begin{textblock}{180}(0,152)
+\begin{textblock}{180}(0,160)
 \sffamily\normalsize{\color{sciorange}DATASETS}\small\\
 \rule[3mm]{190mm}{0.1pt}
 \end{textblock} 
-\begin{textblock}{190}(0,155)
+\begin{textblock}{190}(0,163)
  \footnotesize 
 %TODO: Create bibliography for this
 \begin{multicols}{3}
 With the exception of the URLs dataset, all datasets were retrieved from
 the Pizza \& Chili Corpus [2]; the URL dataset is the one used by Ranjan Sinha
 in his original burstsort paper [3]. The algorithms were tested on a sample
-of 100 and 200 megabytes with each dataset.\\\\
+of 100 and 200 megabytes with each dataset.\vspace{1.5mm}\\
 %ref1 https://sites.google.com/site/ranjansinha/home \\
 %ref2 http://www.cs.mu.oz.au/~rsinha/resources/data/sort.data.zip \\
-\sffamily\normalsize{\color{sciorange}DNA}\small\\
+{\sffamily\normalsize{\color{sciorange}DNA}}\small\\
 \footnotesize 
 The DNA dataset consists of sequences of nucleotide codes, all exactly $3732300$
 characters in length.  This is by far the easiest dataset, having the smallest
 number of strings and the smallest LCP array sum; very little of the extremely
-long strings is actually required for sorting them.
-
-\sffamily\normalsize{\color{sciorange}URLS}\small\\
+long strings is actually required for sorting them.\vspace{1.5mm}\\
+{\sffamily\normalsize{\color{sciorange}URLS}}\small\\
 \footnotesize 
 The URLS dataset consists of several web addresses.  Due to most common URLs
 having similar prefixes, as well as the dataset containing several duplicate
 URLs, this dataset has the highest LCP array sum, though not significantly
-higher than the WORDS dataset.
-
-
+higher than the WORDS dataset.\vspace{1.5mm}\\
+{\sffamily\normalsize{\color{sciorange}WORDS}}\small\\
+\footnotesize 
+The WORDS dataset is a modification of the ENGLISH dataset of the Pizza \& Chili
+Corpus, constructed by splitting each word on its own line in order to make our
+algorithms sort individual words instead of entire lines.  The dataset thus
+consists of very many very short strings, with a few outliers due to formatting
+markup in the source file.  The dataset also ranks second highest in LCP array
+sum size and highest in alphabet size, due to common words appearing hundreds of
+times in the text and some loan words using characters not in the English
+alphabet.
 
 \end{multicols}
 
