@@ -1,4 +1,5 @@
 \begin{textblock}{92.5}(0,0)
+\begin{multicols}{2}
 \sffamily
 \small 
 Comparison-based sorting is one of the most mature subfields of CS research.
@@ -6,13 +7,12 @@ However, the more well-known of such algorithms have been designed with the
 expectation that the objects they sort can be compared in constant time.
 When used to sort objects that require linear-time comparison operations,
 such as strings, they perform a lot of wasteful work that leads to suboptimal
-performance.  For maximum efficiency, \emph{string sorting algorithms} are
-needed.
-\end{textblock}
-\begin{textblock}{92.5}(97.5,0)
-  \sffamily \small 
+performance. For maximum efficiency, \emph{string sorting algorithms} are
+needed.\\
+
 We have implemented a family of three different string sorting algorithms in
-Python and compared their performance against Python's native Timsort using
-a variety of different datasets.
+Python and compared their performance against Python's native Timsort [1] using
+four different datasets with two variants each.
 % TODO: add reference to Timsort, discuss something about the results here
+\end{multicols}
 \end{textblock}
