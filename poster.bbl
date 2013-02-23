@@ -1,44 +1,28 @@
 \begin{thebibliography}{1}
 \setlength{\columnsep}{1cm}
-\begin{multicols}{3}
+\begin{multicols}{2}
 
-\bibitem{ll2005}
-U.~Lauther and T.~Lukovszki.
-\newblock Space efficient algorithms for the {B}urrows-{W}heeler
-  backtransformation.
-\newblock In {\em Proc.\ 13th Annual European Symposium on Algorithms}, volume
-  3669 of {\em LNCS}, pages 293--304. Springer, 2005.
+\bibitem{p2002}
+T.~Peters.
+\newblock [Python-Dev] Sorting.
+\newblock In {\em Python Developers Mailinglist}, 2002.
+\newblock Retrieved on 21 Feb 2013.
 
-\bibitem{s2001}
-J.~Seward.
-\newblock Space-time tradeoffs in the inverse {B-W} transform.
-\newblock In {\em Proc. IEEE Data Compression Conference}, pages 439--448.
+\bibitem{fn2005}
+P.~Ferragina and G.~Navarro. 
+\newblock The Pizza \& Chili Corpus, http://pizzachili.dcc.uchile.cl/texts.html, 2005
+\newblock Retrieved on 11 Feb 2013.
+
+\bibitem{sw2008}
+R.~Sinha and A.~Wirth.
+\newblock Engineering burstsort: Towards fast in-place string sorting. 
+\newblock In {\em Experimental Algorithms}, pages 14--27, Springer, 2008.
   IEEE, 2001.
 
-\bibitem{ll2005}
-U.~Lauther and T.~Lukovszki.
-\newblock Space efficient algorithms for the {B}urrows-{W}heeler
-  backtransformation.
-\newblock In {\em Proc.\ 13th Annual European Symposium on Algorithms}, volume
-  3669 of {\em LNCS}, pages 293--304. Springer, 2005.
-
-\bibitem{s2001}
-J.~Seward.
-\newblock Space-time tradeoffs in the inverse {B-W} transform.
-\newblock In {\em Proc. IEEE Data Compression Conference}, pages 439--448.
-  IEEE, 2001.
-
-\bibitem{ll2005}
-U.~Lauther and T.~Lukovszki.
-\newblock Space efficient algorithms for the {B}urrows-{W}heeler
-  backtransformation.
-\newblock In {\em Proc.\ 13th Annual European Symposium on Algorithms}, volume
-  3669 of {\em LNCS}, pages 293--304. Springer, 2005.
-
-\bibitem{s2001}
-J.~Seward.
-\newblock Space-time tradeoffs in the inverse {B-W} transform.
-\newblock In {\em Proc. IEEE Data Compression Conference}, pages 439--448.
-  IEEE, 2001.
+\bibitem{sinha}
+R.~Sinha.
+\newblock URL dataset
+\newblock http://www.cs.mu.oz.au/~rsinha/resources/data/sort.data.zip 
+\newblock Retrieved Feb 2013
 \end{multicols}
 \end{thebibliography}
