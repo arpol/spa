@@ -1,8 +1,6 @@
-\begin{textblock}{190}(0,31)
+
 \sffamily\normalsize{\color{sciorange}ALGORITHMS}\small\\
-\rule[3mm]{190mm}{0.1pt}
-\end{textblock}
-\begin{textblock}{190}(0,31)
+\rule[3mm]{190mm}{0.1pt}\vspace{-8mm}
 \begin{multicols}{3}
 \footnotesize
 String processing algorithms distinguish themselves from naive comparison
@@ -10,11 +8,14 @@ algorithms by maintaining knowledge of the lengths of the {\em longest common
 prefixes (LCP)} of pairs of input strings as they sort them, which they use to
 avoid redundant comparisons.  The {\em LCP array} of a set of strings, by
 extension, is defined as follows:
-    
-    Given an ordered set of strings $S_1 < ... < S_n$,
+
+\begin{quote}
+    Given an ordered set of strings\\ $S_1 < ... < S_n$,
     $LCP[1] = 0$ and $LCP[i]$ is the length of the longest common prefix of
     strings $S_i$ and $S_{i-1}$ when $i > 1$.
+\end{quote}
 
+\begin{center}
 \begin{tabular}{lrr}
     i&  $S_i$&          $LCP[i]$\\ \hline
     1&  actor&        0\\
@@ -23,18 +24,16 @@ extension, is defined as follows:
     4&  beta&         0\\
     5&  {\color{red}b}yproduct&  1\\
 \end{tabular}
-    
-\end{multicols}
-\end{textblock}
-%leaving the column location definitions outside of the actual content
-\begin{textblock}{60}(0,58)
-    \input{sections/radixsort.tex}
-\end{textblock}
+\end{center}
 
-\begin{textblock}{60}(65,58)
-    \input{sections/quicksort.tex}
-\end{textblock}
+Observe that were one to confirm that the set of strings in the above example
+is indeed sorted, one would have to check exactly the highlighted characters
+plus one for every string, with the first string excepted.
+In fact, $\Omega(L(R) + n)$ represents the lower bound for any algorithm that must
+access symbols one at a a time, where $L(R)$ is the sum of the $LCP-array$ for
+a set of strings $R$ with $n$ elements.  In comparison, the
+average lower bound for sorting strings using only naive comparisons is
+$\Omega(n(log n)^2)$.
+\end{multicols}\vspace{-3mm}
+\rule[3mm]{190mm}{0.1pt}
 
-\begin{textblock}{60}(130,58)
-    \input{sections/burstsort.tex}
-\end{textblock}

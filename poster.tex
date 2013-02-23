@@ -23,8 +23,9 @@
 \input{sections/header.tex}
 
 % ------------------------- ABSTRACT ----------------------------------
-\input{sections/abstract.tex}
-
+\begin{textblock}{190}(0,-5)
+    \input{sections/abstract.tex}
+\end{textblock}
 % Large subtitle with line. Again, not from the university template.
 %\begin{textblock}{190}(0,25)
 %\sffamily
@@ -33,17 +34,34 @@
 %\end{textblock} 
 
 % ----------------------- ALGORITHMS ----------------------------
-\input{sections/algorithms.tex}
+\begin{textblock}{190}(0,27)
+    \input{sections/algorithms.tex}
+\end{textblock}
+
+\begin{textblock}{60}(0,72)
+    \input{sections/radixsort.tex}
+\end{textblock}
+
+\begin{textblock}{60}(65,72)
+    \input{sections/quicksort.tex}
+\end{textblock}
+
+\begin{textblock}{60}(130,72)
+    \input{sections/burstsort.tex}
+\end{textblock}
+
 
 % ----------------------- TEST DATA -----------------------------
-\input{sections/testdata.tex}
+\begin{textblock}{180}(0,180)
+    \input{sections/testdata.tex}
+\end{textblock}
 
 %\begin{textblock}{60}(130,165)
 %  {\sffamily\normalsize{\color{sciorange}CONCLUDING REMARKS}}\vspace{1mm}\\
 %  \footnotesize 
 %\end{textblock}
 
-\begin{textblock}{180}(0, 215)
+\begin{textblock}{180}(0, 265)
   \def\refname{\normalfont\sffamily\normalsize{\color{sciorange}REFERENCES}}
   \scriptsize\sffamily
   \bibliographystyle{abbrv}
