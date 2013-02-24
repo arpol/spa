@@ -1,6 +1,6 @@
-burstsort 8.185 16.245
-in-place\nmultikey\nquicksort 5.348 11.697
-multikey\nquicksort 25.062 64.836
-ternary\nquicksort 8.585 16.921
-radixsort 10.893 21.641
-timsort 5.072 10.601
+"burstsort" 8.185 16.245
+"in-place\nmultikey\nquicksort" 5.348 11.697
+"multikey\nquicksort" 25.062 64.836
+"ternary\nquicksort" 8.585 16.921
+"radix sort" 10.893 21.641
+"timsort" 5.072 10.601

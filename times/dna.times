@@ -1,6 +1,6 @@
-burst\nsort 1.284 2.440
-in-place\nmultikey\nquicksort 1.280 2.484
-multikey\nquicksort 0.276 0.520
-ternary\nquicksort 0.276 0.520
-radixsort 0.284 0.532
-timsort 0.200 0.372
+"burstsort" 1.284 2.440
+"in-place\nmultikey\nquicksort" 1.280 2.484
+"multikey\nquicksort" 0.276 0.520
+"ternary\nquicksort" 0.276 0.520
+"radix sort" 0.284 0.532
+"timsort" 0.200 0.372
