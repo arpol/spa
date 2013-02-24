@@ -1,6 +1,7 @@
 \sffamily\normalsize{\color{sciorange}TEST RESULTS}\small\\
 \scriptsize 
 \begin{table}
+  \captionsetup{font=scriptsize}
    \begin{tabular}{| l | r | r | r | r | r | r |}
    \hline
     Dataset & \specialcell{timsort\\ (builtin)}& \specialcell{MSD \\radix sort} & \specialcell{multikey\\ quicksort}&\specialcell{ternary \\quicksort} & \specialcell{burstsort}  &  \specialcell{in-place \\ \specialcell{multikey \\quicksort}}\\ 
@@ -15,6 +16,6 @@
     words.200MB&        45.311&     42.147&     367.687&    71.788&     17.361&     27.09\\ 
     \hline
   \end{tabular}
-\caption{\scriptsize Running times of the algorithms in seconds}
+\caption{Running times of the algorithms in seconds.}
 \label{dataset}
 \end{table}
