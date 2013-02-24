@@ -1,21 +1,24 @@
 {\sffamily\normalsize{\color{sciorange} BURSTSORT}}\vspace{1mm}\\
-\footnotesize 
-Burstsort partitions the input strings into growable but limited-sized
-buckets that are afterwards sorted using an auxiliary sorting
-algorithm, such as multikey quicksort. Unlike many distribution sorts,
-Burstsort reads the input sequentially in order to avoid cache misses.
-The partitioning limits the input length for the auxialiary sort and
-can thus improve its cache-efficiency as well.\\
+\footnotesize Burstsort partitions the input strings into growable but
+limited-sized buckets that are afterwards sorted using an auxiliary
+sorting algorithm. Unlike many distribution sorts, burstsort reads the
+input sequentially in order to avoid cache misses.  The partitioning
+limits the input length for the auxialiary sort and can thus improve
+its cache-efficiency as well. Burstsort's worst case complexity
+depends on the implementation details.\\
 
-Burstsort uses a special data structure, \emph{burst trie}, to store
-the buckets and maintain their order. The burst trie is a special kind
-of trie whose leaf nodes are growable buckets containing pointers to
-the suffixes of the inserted strings while the path from the root to
-the leaf node via single-character edges represents the prefix of the
-strings just as with a regular trie.\\
+Burstsort uses \emph{burst trie} to store the buckets and maintain
+their order. This data structure is a trie whose leaf nodes are
+growable buckets containing pointers to the suffixes of the inserted
+strings while the path from the root to the leaf node via
+single-character edges represents the prefix of the strings just as
+with a regular trie.\\
 
 A new operation, \emph{burst}, is needed when a full bucket is already
 at the maximum capacity and a new string is being inserted into
 it. Burst creates a new bucket for each character in the alphabet and
 redistributes the suffixes in the bursting bucket into them.\\
 
+Our implementation uses a fixed alphabet of 256 symbols, a maximum
+bucket size of 32768 strings, and uses in-place multikey quicksort to
+sort the buckets.
