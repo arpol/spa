@@ -1,4 +1,4 @@
-{\sffamily\normalsize{\color{sciorange} QUICKSORT}}\vspace{1mm}\\
+{\sffamily\small{\color{sciorange} QUICKSORT}}\vspace{1mm}\\
 \footnotesize 
 String quicksort operates by recursively partioning the list of strings corresponding to their lexicographical order compared to the pivot string. It sorts strings in time $O(L(R) + n \log n)$.\\ 
 
@@ -13,6 +13,7 @@ Ternary quicksort partitions the strings based on whole string comparison. Resul
 \end{itemize}
 
 Multikey quicksort partitions using single character comparison, an extra partition for strings with the currently compared character being their last is created.\\
+
 Both algorithms recursively partition the strings until each partition contains only one string.  Number of string comparisons in ternary quicksort is of $O(n \log n)$, with overall time complexity depending on the choice of the pivot.
 
 
