@@ -22,8 +22,8 @@ f(x) = (x < 100 ? 1/0 : 75)
 set title "English words"
 set output "english.pdf"
 set yrange [0:100]
-set ytics 10
-set mytics 5
+set ytics 20
+set mytics 4
 plot dir . "words.times" using 2:xtic(1) title "100MB" with histogram lc rgb firstColor,\
      "" using 3:xtic(1) title "200MB" with histogram lc rgb secondColor,\
      "" using (column(0) - 0.17):(f($2)):2 with labels rotate by 90 title "",\
@@ -49,7 +49,7 @@ plot dir . "proteins.times" using 2:xtic(1) title "100MB" with histogram lc rgb 
 set title "URLs"
 set output "urls.pdf"
 set yrange [0:70]
-set ytics 10
-set mytics 5
+set ytics 20
+set mytics 4
 plot dir . "urls.times" using 2:xtic(1) title "100MB" with histogram lc rgb firstColor,\
      "" using 3:xtic(1) title "200MB" with histogram lc rgb secondColor
