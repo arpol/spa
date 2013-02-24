@@ -8,3 +8,5 @@ remove
 sections/*.aux
 sections/*.log
 sections/.*
+sections/*~
+*~
