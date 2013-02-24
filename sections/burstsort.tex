@@ -1,14 +1,13 @@
-{\sffamily\normalsize{\color{sciorange} BURST SORT}}\vspace{1mm}\\
+{\sffamily\normalsize{\color{sciorange} BURSTSORT}}\vspace{1mm}\\
 \footnotesize 
-Burst sort partitions the input strings into growable but
-limited-sized buckets that are afterwards sorted using an auxiliary
-sorting algorithm, such as multikey Quicksort. Unlike many
-distribution sorts, Burst sort reads the input sequentially in order
-to avoid cache misses.  The partitioning limits the input length for
-the auxialiary sort and can thus improve its cache-efficiency as
-well.\\
+Burstsort partitions the input strings into growable but limited-sized
+buckets that are afterwards sorted using an auxiliary sorting
+algorithm, such as multikey quicksort. Unlike many distribution sorts,
+Burstsort reads the input sequentially in order to avoid cache misses.
+The partitioning limits the input length for the auxialiary sort and
+can thus improve its cache-efficiency as well.\\
 
-Burst sort uses a special data structure, \emph{burst trie}, to store
+Burstsort uses a special data structure, \emph{burst trie}, to store
 the buckets and maintain their order. The burst trie is a special kind
 of trie whose leaf nodes are growable buckets containing pointers to
 the suffixes of the inserted strings while the path from the root to
