@@ -21,7 +21,7 @@
         \bibitem{sinha}
         R.~Sinha.
         \newblock URL dataset
-        \newblock http://www.cs.mu.oz.au/~rsinha/resources/data/sort.data.zip 
+        \newblock http://www.cs.mu.oz.au/{\textasciitilde}rsinha/resources/data/sort.data.zip 
         \newblock Retrieved Feb 2013
     \end{multicols}
 \end{thebibliography}
