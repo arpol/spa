@@ -13,7 +13,6 @@ alphabet and if the buckets are stored in a binary search tree, each addition
 takes $O(\log \sigma)$ time.  If they are stored in an array or a hash table, merging
 takes $\Theta(\sigma)$ time.\\
 
-Our implementation uses fixed arrays of size 256 but falls back to string
-quicksort when the size of the bucket falls below the size of the alphabet,
-avoiding wasteful allocation and merging.  This gives it a time complexity
-of $O(L(R) + n \log \sigma)$.
+Our implementation stores the buckets in an array, using a fixed alphabet size
+of 256 but falling back to quicksort when the bucket size is smaller than the
+alphabet, which gives it a time complexity of $O(L(R) + n \log \sigma)$.

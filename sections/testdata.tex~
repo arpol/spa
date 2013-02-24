@@ -11,12 +11,6 @@ The DNA dataset consists of sequences of nucleotide codes, all exactly $3732300$
 characters in length.  This is by far the easiest dataset, having the smallest
 number of strings and the smallest LCP array sum; very little of the extremely
 long strings is actually required for sorting them.\vspace{1.5mm}\\
-{\sffamily\normalsize{\color{sciorange}PROTEINS}}\small\\
-\footnotesize 
-The PROTEINS dataset consists of sequences of amino acid codons of varying
-lengths.  It can be perceived as a more challenging variant of the DNA dataset,
-having two orders of magnitude more strings and an LCP array sum four whole
-orders of magnitude larger while retaining a similar alphabet.\vspace{1.5mm}\\
 {\sffamily\normalsize{\color{sciorange}URLS}}\small\\
 \footnotesize 
 The URLS dataset consists of several web addresses.  Due to most common URLs

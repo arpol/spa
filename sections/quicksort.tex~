@@ -9,7 +9,7 @@ Ternary quicksort partitions the strings based on whole string comparison. Resul
 \begin{itemize}
     \item Equal to the pivot\vspace{-1mm}
     \item Lexicographically smaller than the pivot\vspace{-1mm}
-    \item Lexicographically larger than the pivot
+    \item Lexicographically larger than the pivot\vspace
 \end{itemize}
 
 Multikey quicksort partitions using single character comparison, an extra partition for strings with the currently compared character being their last is created.\\
