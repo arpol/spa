@@ -7,14 +7,13 @@ Good pivot selection reduces the maximum depth of the recursion tree. For quicks
 Ternary quicksort partitions the strings based on whole string comparison. Resulting sets are:
     
 \begin{itemize}
-    \item Equal to the pivot
-    \item Lexicographically smaller than the pivot
+    \item Equal to the pivot\vspace{-1mm}
+    \item Lexicographically smaller than the pivot\vspace{-1mm}
     \item Lexicographically larger than the pivot
 \end{itemize}
 
 Multikey quicksort partitions using single character comparison, an extra partition for strings with the currently compared character being their last is created.\\
-
-Both algorithms recursively partition the strings until each partition contains only one string. The strings are returned in the reverse order of recursion resulting in a sorted array of strings, with the number of string comparisons being $O(n \log n)$.
+Both algorithms recursively partition the strings until each partition contains only one string.  Number of string comparisons in ternary quicksort is of $O(n \log n)$, with overall time complexity depending on the choice of the pivot.
 
 
 

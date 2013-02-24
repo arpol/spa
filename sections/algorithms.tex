@@ -5,7 +5,7 @@
 \footnotesize
 String processing algorithms distinguish themselves from naive comparison
 algorithms by maintaining knowledge of the lengths of the {\em longest common
-prefixes (LCP)} of pairs of input strings as they sort them, which they use to
+prefixes} (LCP) of pairs of input strings as they sort them, which they use to
 avoid redundant comparisons.  The {\em LCP array} of a set of strings, by
 extension, is defined as follows:
 
@@ -30,10 +30,10 @@ Observe that were one to confirm that the set of strings in the above example
 is indeed sorted, one would have to check exactly the highlighted characters
 plus one for every string, with the first string excepted.
 In fact, $\Omega(L(R) + n)$ represents the lower bound for any algorithm that must
-access symbols one at a a time, where $L(R)$ is the sum of the $LCP-array$ for
+access symbols one at a a time, where $L(R)$ is the sum of the LCP array for
 a set of strings $R$ with $n$ elements.  In comparison, the
 average lower bound for sorting strings using only naive comparisons is
-$\Omega(n(log n)^2)$.
+$\Omega(n(\log n)^2)$.
 \end{multicols}%\vspace{-3mm}
 %\rule[3mm]{190mm}{0.1pt}
 

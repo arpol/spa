@@ -1,22 +1,19 @@
 {\sffamily\normalsize{\color{sciorange} MSD RADIX SORT}}\vspace{1mm}\\
 \footnotesize 
 MSD radix sort first partitions the strings into different buckets based on
-first symbol is, then recursively partitions *those* buckets based on what
-the second symbol is, and so on.  When only single-element buckets or buckets
-containing only strings shorter than the recursion depth are left, the results
-are concatenated and output.\\
+what their first symbol is, then recursively partitions \emph{those} buckets
+based on what the second symbol is, and so on.  When only single-element
+buckets or buckets containing only strings shorter than the recursion depth
+are left, the results are concatenated and output.\\
 
-{\em Highlight and underline these to illustrate the partitioning.}
-\begin{quote}
-    actor\\
-    allocate\\
-    alpha\\
-    beta\\
-    byproduct\\
-\end{quote}
 MSD radix sort never needs to process a symbol twice, technically giving it
 $O(L(R) + n)$ complexity assuming a finite alphabet.  However, the complexity
 is dominated by the bucket container data structure: if $\sigma$ is the size of the
 alphabet and if the buckets are stored in a binary search tree, each addition
 takes $O(\log \sigma)$ time.  If they are stored in an array or a hash table, merging
-takes $\Theta(\sigma)$ time.
+takes $\Theta(\sigma)$ time.\\
+
+Our implementation uses fixed arrays of size 256 but falls back to string
+quicksort when the size of the bucket falls below the size of the alphabet,
+avoiding wasteful allocation and merging.  This gives it a time complexity
+of $O(L(R) + n \log \sigma)$.

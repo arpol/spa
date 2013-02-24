@@ -1,8 +1,8 @@
 {\sffamily\normalsize{\color{sciorange}DATASETS}}\vspace{-7mm}\small\\
  \footnotesize 
 \begin{multicols}{3}
-With the exception of the URLs dataset, all datasets were retrieved from
-the Pizza \& Chili Corpus~\cite{fn2005}; the URL dataset~\cite{sinha} is the one used by Ranjan Sinha
+With the exception of the URLS dataset~\cite{sinha}, all datasets were retrieved from
+the Pizza \& Chili Corpus~\cite{fn2005}; the URLS dataset is the one used by Ranjan Sinha
 in his original burstsort paper~\cite{sw2008}. The algorithms were tested on a sample
 of 100 and 200 megabytes with each dataset.\vspace{1.5mm}\\
 {\sffamily\normalsize{\color{sciorange}DNA}}\small\\
@@ -11,6 +11,12 @@ The DNA dataset consists of sequences of nucleotide codes, all exactly $3732300$
 characters in length.  This is by far the easiest dataset, having the smallest
 number of strings and the smallest LCP array sum; very little of the extremely
 long strings is actually required for sorting them.\vspace{1.5mm}\\
+{\sffamily\normalsize{\color{sciorange}PROTEINS}}\small\\
+\footnotesize 
+The PROTEINS dataset consists of sequences of amino acid codons of varying
+lengths.  It can be perceived as a more challenging variant of the DNA dataset,
+having two orders of magnitude more strings and an LCP array sum four whole
+orders of magnitude larger while retaining a similar alphabet.\vspace{1.5mm}\\
 {\sffamily\normalsize{\color{sciorange}URLS}}\small\\
 \footnotesize 
 The URLS dataset consists of several web addresses.  Due to most common URLs
