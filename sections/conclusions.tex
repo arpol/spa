@@ -1,17 +1,27 @@
- {\sffamily\normalsize{\color{sciorange}CONCLUSION}}\vspace{-7mm}\small\\
+ {\sffamily\normalsize{\color{sciorange}RESULTS}}\vspace{-7mm}\small\\
  \footnotesize 
 \begin{multicols}{3}
+The above results were achieved with the PyPy just-in-time compiler for
+Python on a quad-core 64-bit Intel Core i5 machine with 6 megabytes of
+cache and 8 gigabytes of RAM.  The results should be taken with a grain
+of salt due to our use of a high-level language with a JIT compiler:
+non-transparent optimizations may have been performed at any step of the
+execution process.  For a direct comparison, a lower-level language should
+be used.\\
+
 Our choice of a fixed alphabet of $256$ symbols for MSD radix sort definitely
 hurt its performance: less than half of the buckets allocated at each
 partitioning step are ever used to hold any strings with every other dataset
 besides WORDS.\\
 
-While fast in theory, Quicksort versions that were not sorting in-place were rather sluggish. Some of the peformance degradation could have been caused by $O(n \log n)$  memory requirement. Coupled with read/write access to non-contiguous memory areas the resulting cache-misses caused performance penalty.\\
+While fast in theory, quicksort versions that were not sorting in-place were
+rather sluggish.  Some of the peformance degradation could have been caused
+by $O(n \log n)$  memory requirement.  Coupled with read/write access to
+non-contiguous memory areas the resulting cache-misses caused performance
+penalties.\\
 
-It was interesting to note how much better the in-place algorithms performed on
-the more demanding datasets.  Despite being geared towards high-level
-programming, it appears there are still performance gains to be had in
-low-level programming using Python.\\
-
-In particular, Burst sort came out to lead in a league of its own where the large datasets with with high LCP array sums were used, leaving the other implementations behind, including built-in Timsort that comes shipped with Python
+It was interesting to note how much better the in-place algorithms (burstsort
+and in-place multikey quicksort) performed on the more demanding datasets.
+Despite being a high-level language, it appears there are still performance
+gains to be had in programming close to the hardware in Python.
 \end{multicols}
