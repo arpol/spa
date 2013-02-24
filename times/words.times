@@ -2,5 +2,5 @@
 "in-place\nmultikey\nquicksort"	13.313	27.090
 "multikey\nquicksort"	125 368 125.384	367.687
 "ternary\nquicksort"	34.182	71.788
-"radix sort"	20.357	42.147
+"msd\nradix\nsort"	20.357	42.147
 "timsort"	21.449	45.311
